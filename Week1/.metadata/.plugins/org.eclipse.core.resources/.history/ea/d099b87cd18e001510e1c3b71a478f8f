@@ -1,0 +1,17 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		Maths m = new Maths();
+		
+//		int[] arrayA = {2,2,3};
+//		int[] arrayB = {2, 2, 4};
+		
+//		String i = m.decodeUrl("kitten%20pic.jpg");
+		m.sumOfNumbers("12kdk23");
+//		System.out.println(i);
+
+	}
+
+}
+

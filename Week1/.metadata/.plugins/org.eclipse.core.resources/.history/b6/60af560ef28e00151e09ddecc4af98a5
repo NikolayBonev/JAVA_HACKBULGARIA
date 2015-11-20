@@ -1,0 +1,17 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		Maths m = new Maths();
+		
+		int[] arrayA = {10, 10};
+//		int[] arrayB = {2, 2, 4};
+		
+		int i = m.maxSpan(arrayA);
+
+		System.out.println(i);
+
+	}
+
+}
+
