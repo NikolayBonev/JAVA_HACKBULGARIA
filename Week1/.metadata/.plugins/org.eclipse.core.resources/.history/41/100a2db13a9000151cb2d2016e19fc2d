@@ -1,0 +1,24 @@
+
+public class Vowels {
+	
+	static int countVowels(String arg){
+		
+		int counter = 0;
+		
+		for(int i = 0 ; i < arg.length() ; i++){
+			char ch= arg.charAt(i);
+			
+			switch (ch) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+			case 'y':
+				counter++;
+			}
+		}
+		
+		return counter;
+	}
+}

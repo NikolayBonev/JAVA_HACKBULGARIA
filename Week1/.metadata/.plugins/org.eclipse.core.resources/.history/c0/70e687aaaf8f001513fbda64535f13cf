@@ -1,0 +1,18 @@
+
+public class Task34_Friday_Years {
+	static int friday_years(String start, String end){
+		
+		Integer startYear = Integer.parseInt(start);
+		Integer endYear = Integer.parseInt(end);
+		
+		int leapYears = 0;
+		
+		for(int i = startYear; i <= endYear ; i++){
+			if((i % 400 == 0) || ((i % 4 == 0) || (i % 100 != 0))){
+				leapYears++;
+			}
+		}
+		
+		return leapYears;
+	}
+}

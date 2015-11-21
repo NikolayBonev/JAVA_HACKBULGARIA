@@ -1,0 +1,73 @@
+
+public class Exercises {
+	
+//	Task 6
+	static long doubleFac(int n){
+		long factorial = 1;
+		long p = n;
+		
+		for(int j = 0; j < 2 ; j++){
+			factorial = 1;
+			
+			p = factorial(p);
+		}
+		
+		return factorial;
+	}
+	
+	static  long factorial(long n){
+		long factorial = 1;
+		
+		for(int i = 1 ; i <= n ; i++){
+			factorial*= i;
+		}
+		
+		return factorial;
+	}
+	
+//	Task 7
+	static long kthFac(int k, int n){
+		long factorial = 1;
+		long p = n;
+		
+		for(int j = 0 ; j < k ; j++){
+			factorial =1;
+			
+			p = factorial(p);
+		}
+		
+		return factorial;
+	}
+
+//	Task 11
+	static long pow(int a, int b){
+		long powNum = a;
+		
+		for(int i = 1 ; i < b ; i++){
+			powNum *= a; 
+		}
+		
+		return powNum;
+	}
+
+//	Task 26
+	
+	
+//	Task 27
+	static boolean hasAnagramOf(String A,String B){
+		
+		A = A.replaceAll("[^a-zA-Z]", "");
+		B = B.replaceAll("[^a-zA-Z]", "");
+		
+		int endIndex = A.length();
+		for(int i = 0; i < B.length() && endIndex < B.length(); i++){
+			if(anagram(A, B.substring(i, endIndex))){
+				return true;
+			}
+			
+			endIndex++;
+		}
+		
+		return false;
+	}
+}

@@ -1,0 +1,11 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		int[] message = {2, 2, 2, 2};
+		
+		System.out.println(Task33_100SMS.numbersToMessage(message));
+	}
+
+}

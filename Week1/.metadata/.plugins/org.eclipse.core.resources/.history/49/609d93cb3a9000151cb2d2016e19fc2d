@@ -1,0 +1,18 @@
+
+public class Task31_Consonants {
+	
+	static int countConsonants(String arg){
+		
+		int vowelsCount = Task30_Vowels.countVowels(arg);
+		
+		String text = arg.replaceAll("[^a-zA-Z]", "");
+		
+		int result = text.length() - vowelsCount;
+		
+		if(result <= 0){
+			return 0;
+		}
+		
+		return result; 
+	}
+}

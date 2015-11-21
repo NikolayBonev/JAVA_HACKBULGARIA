@@ -1,0 +1,68 @@
+
+public class Task33_100SMS {
+	
+	static char decodeNumbers(int number, int timesPressed){
+		
+		String lettersInButton = "";
+		
+		switch (number) {
+		case 2:
+			lettersInButton = "abc";
+			break;
+		case 3:
+			lettersInButton = "def";
+			break;
+		case 4:
+			lettersInButton = "ghi";
+			break;
+		case 5:
+			lettersInButton = "jkl";
+			break;
+		case 6:
+			lettersInButton = "mno";
+			break;
+		case 7:
+			lettersInButton = "pqrs";
+			break;
+		case 8:
+			lettersInButton = "tuv";
+			break;
+		case 9:
+			lettersInButton = "wxyz";
+			break;
+		}
+		
+		return lettersInButton.charAt(timesPressed-1);
+	}
+	
+	static String numbersToMessage(int[] pressedSequence){
+		
+		StringBuilder message = new StringBuilder();
+		boolean capital = false;
+		
+		for(int i = 0 ; i < pressedSequence.length ; i++){	
+			switch (pressedSequence[i]) {
+			case 0:
+				message.append(" ");
+				break;
+			case 1:
+				capital = true;
+				break;
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+				
+
+			default:
+				break;
+			}
+		}
+		
+		return "";
+	}
+}

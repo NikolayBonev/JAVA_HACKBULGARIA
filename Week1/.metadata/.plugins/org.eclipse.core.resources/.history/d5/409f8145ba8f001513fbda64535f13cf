@@ -1,0 +1,25 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+public class Task34_Friday_Years {
+	static int friday_years(String start, String end){
+		
+		Integer startYear = Integer.parseInt(start);
+		Integer endYear = Integer.parseInt(end);
+		
+		int years = -1;
+		GregorianCalendar calen = new GregorianCalendar();
+		
+		for(int i = startYear ; i <= endYear ; i++){
+			calen.set(i, 12, 31);
+			
+			if(calen.isLeapYear(i) && (calen.getMinimalDaysInFirstWeek() == 3 || calen.getMinimalDaysInFirstWeek() == 4)){
+				years++;
+			}else if(!calen.isLeapYear(i) && calen.getMinimalDaysInFirstWeek() == 2){
+				
+			}
+		}
+		
+		return years;
+	}
+}

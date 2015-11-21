@@ -1,0 +1,308 @@
+
+public class Exercises {
+	
+//	Task 6
+	static long doubleFac(int n){
+		long factorial = 1;
+		long p = n;
+		
+		for(int j = 0; j < 2 ; j++){
+			factorial = 1;
+			
+			p = factorial(p);
+		}
+		
+		return factorial;
+	}
+	
+	static  long factorial(long n){
+		long factorial = 1;
+		
+		for(int i = 1 ; i <= n ; i++){
+			factorial*= i;
+		}
+		
+		return factorial;
+	}
+	
+//	Task 7
+	static long kthFac(int k, int n){
+		long factorial = 1;
+		long p = n;
+		
+		for(int j = 0 ; j < k ; j++){
+			factorial =1;
+			
+			p = factorial(p);
+		}
+		
+		return factorial;
+	}
+
+//	Task 11
+	static long pow(int a, int b){
+		long powNum = a;
+		
+		for(int i = 1 ; i < b ; i++){
+			powNum *= a; 
+		}
+		
+		return powNum;
+	}
+
+//	Task 17
+	static String reverseMe(String argument){
+		StringBuilder arg = new StringBuilder(argument.length());
+		
+		for(int i = argument.length() - 1; i>= 0 ; i--){
+			arg.append(argument.charAt(i));
+		}
+		
+		return arg.toString();
+	}
+	
+//	Task 18
+	static String reverseEveryChar(String arg){
+		String[] words = arg.split("//s");
+		
+		StringBuilder result = new StringBuilder(arg.length());
+		
+		for(int i = 0 ; i < words.length ; i++){
+			result.append(reverseMe(words[i]));
+		}
+		
+		return result.toString();
+	}
+	
+//	Task 19
+	static boolean isPalindrome(String argument){
+		for(int j = 0; j < argument.length() ; j++){
+			if( argument.charAt(j) != argument.charAt(argument.length() -1 -j)){
+				return false;
+			}
+		}	
+		
+		return true;
+	}
+	
+//	Task 20
+	static boolean isPalindrome(int argument){
+		
+		return isPalindrome(Integer.toString(argument));
+	}
+	
+//	Task 21
+	static String copyEveryChar(String input, int k){
+		StringBuilder result = new StringBuilder(input.length()*k);
+		
+		for(int i = 0 ; i < input.length() ; i++){
+			for(int j = 0 ; j < k ; j++){
+				result.append(input.charAt(i));
+			}
+		}
+		
+		return result.toString();
+	}
+	
+//	Task 22
+	static int getPalindromeLength(String input){
+		int index = input.indexOf('*');
+		int conter = 0;
+		
+		for(int i = 0 ; i < index ; i++){
+			int leftChar = index - 1 - i ;
+			int rightChar = index + 2 + i;
+			
+			if(leftChar >= 0 && rightChar < input.length()){
+				if(isPalindrome(input.substring(leftChar, rightChar))){
+					conter++;
+				}
+			}
+		}
+		
+		return conter;
+	}
+	
+//	Task 23
+	static int countOcurrences(String needle, String haystack){
+		int counter = 0;
+		int index = -1;
+		
+		while(true){
+			index = haystack.indexOf(needle.charAt(0), index + 1);
+			
+			if(haystack.length() - index >= needle.length()  && index > -1){
+				if(haystack.substring(index, index+needle.length()).equals(needle)){
+					counter++;
+				}
+			}else{
+				break;
+			}
+		}
+		
+		return counter;
+	}
+	
+//	Task 24
+	static String decodeUrl(String input){
+
+		input = input.replaceAll("%20", " ");
+		input = input.replaceAll("%3A", ":");
+		input = input.replaceAll("%3D", "?");
+		input = input.replaceAll("%2F", "/");
+		
+		return input;
+	}
+	
+//	Task 25
+	
+	
+//	Task 26
+	static boolean anagram(String A, String B){	
+		int[] charArrayA = foundChars(A);
+		int[] charArrayB = foundChars(B);
+		
+		for(int i = 0 ; i < charArrayA.length ; i++){
+			if(charArrayA[i] != charArrayB[i]){
+				return false;
+			}
+		}
+		
+		return true;
+	}
+	
+	static int[] foundChars(String A){
+		int[] alphabet = new int[26];
+		
+		for(int i = 0 ; i < A.length() ; i++){
+			
+			switch (A.charAt(i)) {
+			case 'A':
+			case 'a':
+				alphabet[0] += 1; 
+				break;
+			case 'B':
+			case 'b':
+				alphabet[1] += 1; 
+				break;
+			case 'C':
+			case 'c':
+				alphabet[2] += 1; 
+				break;
+			case 'D':
+			case 'd':
+				alphabet[3] += 1; 
+				break;
+			case 'E':
+			case 'e':
+				alphabet[4] += 1; 
+				break;
+			case 'F':
+			case 'f':
+				alphabet[5] += 1; 
+				break;
+			case 'G':
+			case 'g':
+				alphabet[6] += 1; 
+				break;
+			case 'H':
+			case 'h':
+				alphabet[7] += 1; 
+				break;
+			case 'I':
+			case 'i':
+				alphabet[8] += 1; 
+				break;
+			case 'J':
+			case 'j':
+				alphabet[9] += 1; 
+				break;
+			case 'K':
+			case 'k':
+				alphabet[10] += 1; 
+				break;
+			case 'L':
+			case 'l':
+				alphabet[11] += 1; 
+				break;
+			case 'M':
+			case 'm':
+				alphabet[12] += 1; 
+				break;
+			case 'N':
+			case 'n':
+				alphabet[13] += 1; 
+				break;
+			case 'O':
+			case 'o':
+				alphabet[14] += 1; 
+				break;
+			case 'P':
+			case 'p':
+				alphabet[15] += 1; 
+				break;
+			case 'Q':
+			case 'q':
+				alphabet[16] += 1; 
+				break;
+			case 'R':
+			case 'r':
+				alphabet[17] += 1; 
+				break;
+			case 'S':
+			case 's':
+				alphabet[18] += 1; 
+				break;
+			case 'T':
+			case 't':
+				alphabet[19] += 1; 
+				break;
+			case 'U':
+			case 'u':
+				alphabet[20] += 1; 
+				break;
+			case 'V':
+			case 'v':
+				alphabet[21] += 1; 
+				break;
+			case 'W':
+			case 'w':
+				alphabet[22] += 1; 
+				break;
+			case 'X':
+			case 'x':
+				alphabet[23] += 1; 
+				break;
+			case 'Y':
+			case 'y':
+				alphabet[24] += 1; 
+				break;
+			case 'Z':
+			case 'z':
+				alphabet[25] += 1; 
+				break;
+			}
+			
+		}
+		
+		return alphabet;
+	}
+	
+//	Task 27
+	static boolean hasAnagramOf(String A,String B){
+		
+		A = A.replaceAll("[^a-zA-Z]", "");
+		B = B.replaceAll("[^a-zA-Z]", "");
+		
+		int endIndex = A.length();
+		for(int i = 0; i < B.length() && endIndex < B.length(); i++){
+			if(anagram(A, B.substring(i, endIndex))){
+				return true;
+			}
+			
+			endIndex++;
+		}
+		
+		return false;
+	}
+}

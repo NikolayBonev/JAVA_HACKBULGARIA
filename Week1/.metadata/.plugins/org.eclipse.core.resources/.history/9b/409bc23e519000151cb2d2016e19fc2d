@@ -1,0 +1,30 @@
+
+public class Task38_zero_Insertion {
+	static int zero_insert(int n){
+		
+		String oldNumber = Integer.toString(n);
+		StringBuilder number = new StringBuilder(oldNumber.length());
+		boolean flag =false;
+		
+		for(int i = 0; i < oldNumber.length() - 1; i++){
+			if(Character.valueOf(oldNumber.charAt(i)).equals(Character.valueOf(oldNumber.charAt(i+1)))){
+				flag = true;
+			}else if((Character.getNumericValue(oldNumber.charAt(i)) + Character.getNumericValue(oldNumber.charAt(i+1))) %10 == 0){
+				flag = true;
+			}
+			
+			number.append(oldNumber.charAt(i));
+			
+			if(flag){
+				number.append("0");
+				number.append(oldNumber.charAt(i+1));
+				flag = false;
+			}else if((i == oldNumber.length() -2) && (flag == false)){
+				number.append(oldNumber.charAt(i+1));
+				break;
+			}
+		}
+		
+		return Integer.parseInt(number.toString());
+	}
+}
