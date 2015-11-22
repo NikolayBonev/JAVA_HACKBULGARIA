@@ -1,0 +1,9 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		System.out.println(Task37_reduce_File_Path.reduce_file_path("/../"));
+	}
+
+}

@@ -1,0 +1,12 @@
+
+public class Task37_reduce_File_Path {
+	
+	static String reduce_file_path(String path){
+		
+		path = path.replaceAll("/$", "").replaceAll("([a-zA-Z]+/..)", "").replaceAll("([.][/])", "")
+				.replaceAll("([/]+)", "/");
+				
+		
+		return path;
+	}
+}

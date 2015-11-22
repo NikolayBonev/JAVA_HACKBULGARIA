@@ -1,9 +1,0 @@
-
-public class Test {
-
-	public static void main(String[] args) {
-		
-		System.out.println(Task36_isAnBn.is_an_bn(""));
-	}
-
-}

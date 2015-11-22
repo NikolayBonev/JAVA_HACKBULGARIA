@@ -1,9 +1,0 @@
-
-public class Test {
-
-	public static void main(String[] args) {
-		
-		System.out.println(Task35_creditCardValidation.is_credit_card_valid("79927398713"));
-	}
-
-}

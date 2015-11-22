@@ -1,0 +1,42 @@
+import java.util.Calendar;
+
+public class Task34_Friday_Years {
+	
+	static String getFirstDayOfYear(int year){
+		
+		Calendar cal = Calendar.getInstance();
+		cal.set(year, Calendar.JANUARY, 1);
+		
+		int firstDay = cal.get(Calendar.DAY_OF_WEEK);
+		
+		String day = "";
+		
+		switch (firstDay) {
+		case 1:
+			day = "SUNDAY";
+			break;
+		case 2:
+			day = "MONDAY";
+			break;
+		case 3:
+			day = "TUESEDAY";
+			break;
+		case 4:
+			day = "WEDNESDAY";
+			break;
+		case 5:
+			day = "MONDAY";
+			break;
+		case 6:
+			day = "MONDAY";
+			break;
+		case 7:
+			day = "MONDAY";
+			break;
+					
+		default:
+			break;
+		}
+		return 
+	}
+}

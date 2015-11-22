@@ -1,0 +1,29 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		static boolean isHack(long n){
+			
+			String numInBinary = Long.toBinaryString(n);
+			boolean palindrome = Task19_20_isPalindrome.isPalindrome(numInBinary);
+			
+			
+			return palindrome;
+		}
+		
+		static long countOfOnes(String binaryNumber){
+			
+			long count = 0;
+			
+			for(int i = 0 ; i < binaryNumber.length(); i++){
+				if(binaryNumber.charAt(i) == '1'){
+					count++;
+				}
+			}
+			
+			return count;
+		}
+	}
+
+}
