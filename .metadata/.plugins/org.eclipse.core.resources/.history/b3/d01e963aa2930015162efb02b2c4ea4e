@@ -1,0 +1,45 @@
+package WednesdayOOP.TheTimeLord;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+public class Time {
+	private String currDate;
+	private String currTime;
+	private String userInfo = "hh:mm dd.MM.YY";
+	
+	public Time(String uString){
+		
+		String[] timeDate = uString.split(" ");
+		
+		setCurrTime(timeDate[0]);
+		setCurrDate(timeDate[1]);
+	}
+
+	public String getCurrDate() {
+		return currDate;
+	}
+
+	public void setCurrDate(String currDate) {
+		this.currDate = currDate;
+	}
+
+	public String getCurrTime() {
+		return currTime;
+	}
+
+	public void setCurrTime(String currTime) {
+		this.currTime = currTime;
+	}
+	
+	public String now(){
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
+		return date.format(cal.getTime());
+	}
+	
+	@Override
+	public String toString(){
+		return getCurrTime() + ":" + getCurrDate();
+	}
+}

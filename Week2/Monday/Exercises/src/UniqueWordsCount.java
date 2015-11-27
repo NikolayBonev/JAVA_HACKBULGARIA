@@ -1,0 +1,17 @@
+import java.util.HashMap;
+
+public class UniqueWordsCount {
+	static int uniqueWordsCount(String[] arr){
+		HashMap<String, Integer> countWords = new HashMap<>();
+		
+		for(int i = 0; i < arr.length ; i++){
+			if(countWords.containsKey(arr[i])){
+				countWords.put(arr[i], countWords.get(arr[i]) +1);
+			}else{
+				countWords.put(arr[i], 1);
+			}
+		}
+		
+		return countWords.size();
+	}
+}

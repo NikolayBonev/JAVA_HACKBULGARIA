@@ -1,0 +1,41 @@
+final public class Pair {
+	
+	private Object obj1;
+	private Object obj2;
+	
+	public Pair(Object obj1, Object obj2){
+		setObj1(obj1);
+		setObj2(obj2);
+	}
+	
+	public Object getObj1() {
+		return this.obj1;
+	}
+	public void setObj1(Object obj1) {
+		this.obj1 = obj1;
+	}
+	public Object getObj2() {
+		return this.obj2;
+	}
+	public void setObj2(Object obj2) {
+		this.obj2 = obj2;
+	}
+
+	public boolean equals(Pair other) {
+		
+		if(this.obj1.equals(other.getObj1()) && this.obj2.equals(other.getObj2())){
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Item1" + this.obj1.getClass().getName() + "Item2" + this.obj2.getClass().getName();
+	}
+	
+	
+	
+	
+}

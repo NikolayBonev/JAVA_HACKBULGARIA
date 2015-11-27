@@ -1,0 +1,20 @@
+package WednesdayOOP.StackEm;
+
+public class StackNoDPL<E> extends StackImpl<E>{
+	@Override
+	public void push(E obj) {
+		
+		if(super.contains(obj)){
+			
+		}
+		super.push(obj);
+	}
+}
+
+class DuplicateElementExeption extends Exception{
+
+	public DuplicateElementExeption(String message) {
+		super(message);
+	}
+	
+}

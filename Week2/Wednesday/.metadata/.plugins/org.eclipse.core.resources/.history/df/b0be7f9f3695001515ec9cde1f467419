@@ -1,0 +1,198 @@
+import java.util.NoSuchElementException;
+
+public class Deque<E> {
+	private class Node<E>{
+		Node<E> left, right;
+		E item;
+		
+		public Node() {
+			this.left = null;
+			this.right = null;
+			this.item = null;
+		}
+		
+		public Node(E item) throws NullPointerException{
+			this();
+			
+			if (item == null) { 
+		    	  throw new NullPointerException();
+		    }
+			
+			this.item = item;
+		}
+		
+		public Node(E item, Node<E> nextElem) throws NullPointerException{
+			this(item);
+			this.right = nextElem;
+			nextElem.left = this;
+		}
+		
+		public Node(Node<E> prevElem, E item) throws NullPointerException{
+			this(item);
+			this.left = prevElem;
+			prevElem.right = this;
+		}
+	}
+	
+	private Node head;
+	private Node tail;
+	private int count;
+	
+	public Deque() {
+		this.head = null;
+		this.tail = null;
+		this.count = 0;
+	}
+	
+	public void offerFirst(E item){
+		if(head == null){
+			head = new Node(item);
+			tail = head;
+		}else{
+			head = new Node(item, head);	
+		}
+		
+		count++;
+	}
+	
+	public void offerLast(E item){
+		if(head == null){
+			head = new Node(item);
+			tail = head;
+		}else{
+			tail = new Node(tail, item);
+		}
+		
+		count++;
+	}
+	
+	public void offer(E item){
+		offerLast(item);
+	}
+	
+	public E peekFirst(){
+		return (E) head.item;
+	}
+	
+	public E peekLast(){
+		return (E) tail.item;
+	}
+	
+	public E peek(){
+		return peekLast();
+	}
+	
+	public E pollFirst(){
+		
+		if(isEmpty()){
+			return null;
+		}
+		
+		E item = (E) head.item;
+		
+		count--;
+		
+		if (count==0) {
+			head = null;
+		    tail = null;
+		} else {
+			head = head.right;
+			head.left = null;
+		}
+		
+		return item;
+		
+	}
+	
+	public E pollLast(){
+		
+		if(isEmpty()){
+			return null;
+		}
+		
+		Node correntNode = tail;
+		
+		count --;
+		 
+		if (count==0) {
+			head = null;
+		    tail = null;
+		} else {
+			tail = correntNode.left;
+			tail.right = null;
+		}
+		
+		return (E) correntNode.item;
+	}
+	
+	public E poll(){
+		return pollLast();
+	}
+	
+	public E removeFirst(){
+		E item = pollFirst();
+		
+		if(item == null){
+			throw new NoSuchElementException();
+		}
+		
+		return item;
+	}
+	
+	public E removeLast(){
+		E item = pollLast();
+		
+		if(item == null){
+			throw new NoSuchElementException();
+		}
+		
+		return item;
+	}
+	
+	public E remove(){
+		return removeLast();
+	}
+	
+	public boolean isEmpty(){
+		if(head == null){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public boolean isEmptyReverse(){
+		if(tail == null){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public int size(){
+		return count;
+	}
+	
+	private int indexOf(E item) {
+		 int index = 0;
+		 Node currentNode = head;
+		 
+		 while (currentNode != null) {
+			 if (currentNode.item.equals(item)) {
+				 return index;
+		     }
+			 
+			 currentNode = currentNode.right;
+		     index++;   
+		 }
+		 
+		 return -1;
+	}
+	
+	public boolean contains(E item) {
+		 int index = indexOf(item);
+		 boolean found = (index != -1);
+		 
+		 return found;      
+	 }
+}

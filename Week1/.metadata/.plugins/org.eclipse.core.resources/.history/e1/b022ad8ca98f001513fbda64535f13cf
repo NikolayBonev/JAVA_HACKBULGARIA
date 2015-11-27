@@ -1,7 +1,0 @@
-
-public class Task1Odd {
-	static boolean isOdd(int n){
-		
-		return !(n%2 ==0);
-	}
-}

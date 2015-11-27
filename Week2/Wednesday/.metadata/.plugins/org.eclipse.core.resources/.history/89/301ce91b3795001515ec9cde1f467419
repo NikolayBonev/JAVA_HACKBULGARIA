@@ -1,0 +1,134 @@
+
+public class Deque<E> implements DoubleLinkedList<E>{
+	private class Node<E>{
+		Node<E> left, right;
+		E item;
+		
+		public Node() {
+			this.left = null;
+			this.right = null;
+			this.item = null;
+		}
+		public Node(E item) throws NullPointerException{
+			this();
+			
+			if (item == null) { 
+		    	  throw new NullPointerException();
+		    }
+			
+			this.item = item;
+		}
+		public Node(E item, Node<E> nextElem) throws NullPointerException{
+			this(item);
+			this.right = nextElem;
+			nextElem.left = this;
+		}
+		public Node(Node<E> prevElem, E item) throws NullPointerException{
+			this(item);
+			this.left = prevElem;
+			prevElem.right = this;
+		}
+	}
+	
+	private Node head;
+	private Node tail;
+	private int count;
+	
+	public Deque() {
+		this.head = null;
+		this.tail = null;
+		this.count = 0;
+	}
+	
+	@Override
+	public void offerFirst(E item) {
+		if(head == null){
+			head = new Node(item);
+			tail = head;
+		}else{
+			head = new Node(item, head);	
+		}
+		
+		count++;
+	}
+	@Override
+	public void offferLast(E item) {
+		if(head == null){
+			head = new Node(item);
+			tail = head;
+		}else{
+			tail = new Node(tail, item);
+		}
+		
+		count++;
+	}
+	@Override
+	public void offer(E item){
+		offferLast(item);
+	}
+	@Override
+	public void removeFirst() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void removeLast() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public E pollFirst() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public E pollLast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public E poll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public E peekFirst() {
+		return (E) head.item;
+	}
+	@Override
+	public E peekLast() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public E peek() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public int indexOf(E item) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	@Override
+	public boolean contains(E item) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

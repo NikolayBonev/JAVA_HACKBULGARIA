@@ -1,0 +1,107 @@
+package WednesdayOOP.StackEm;
+
+import java.util.ArrayList;
+	
+public class StackImpl<E> implements Stack<E>{
+	
+	private Node<E> top;
+	private int size = 0;
+	
+	
+	private class Node<E>{
+		Node<E> prevNode;
+		E item;
+		
+		public Node() {
+			prevNode = null;
+			item = null;
+		}
+		
+		public Node(E item){
+			this();
+			
+			if(item == null){
+				throw new NullPointerException();
+			}else{
+				this.item = item;
+			}
+		}
+		
+		public Node(Node<E> newHead, Node<E> oldHead){
+			newHead.prevNode = oldHead;
+		}
+
+		public E getItem() {
+			return this.item;
+		}
+
+		public void setItem(E item) {
+			this.item = item;
+		}
+	}
+	
+	public StackImpl() {
+
+	}
+
+	public Node<E> getTop() {
+		return top;
+	}
+
+	public void setTop(Node<E> top) {
+		this.top = top;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public void push(E obj) {
+		Node<E> newNode = new Node<E>(obj);
+		
+		if(getTop() == null){
+			setTop(newNode);
+		}else{
+			setTop(new Node<>(newNode, getTop()));
+		}
+		
+		setSize(getSize() + 1);
+	}
+	
+	@Override
+	public E pop() {
+		
+	}
+	@Override
+	public void clear() {
+
+	}
+	@Override
+	public E peek() {
+		return getTop().getItem();
+	}
+	@Override
+	public int size() {
+		return getSize();
+	}
+	@Override
+	public void equals() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public boolean isEmpty() {
+		
+		if(getSize() > 0){
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+}

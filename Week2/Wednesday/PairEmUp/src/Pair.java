@@ -1,0 +1,28 @@
+final public class Pair<E>{
+	
+	final private E obj1;
+	final private E obj2;
+	
+	public Pair(E obj1, E obj2){
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+	}
+
+	public boolean equals(Pair<E> other) {
+		
+		if(this.obj1.equals(other.obj1) && this.obj2.equals(other.obj2)){
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Item1" + this.obj1.getClass().getName() + "Item2" + this.obj2.getClass().getName();
+	}
+	
+	
+	
+	
+}

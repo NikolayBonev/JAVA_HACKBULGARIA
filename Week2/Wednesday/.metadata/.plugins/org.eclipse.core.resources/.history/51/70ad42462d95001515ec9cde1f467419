@@ -1,0 +1,75 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+public class Time {
+	private int hour;
+	private int minute;
+	private int secounds;
+	private int day;
+	private int month;
+	private int year;
+	
+	public Time(String date){
+		String[] timeDate = date.split(" ");
+		
+		String[] time = timeDate[0].split(":");
+		String[] dates = timeDate[1].split("/");
+		
+		setHour(Integer.parseInt(time[0]));
+		setMinute(Integer.parseInt(time[1]));
+		setSecounds(Integer.parseInt(time[2]));
+		
+		setDay(Integer.parseInt(dates[0]));
+		setMonth(Integer.parseInt(dates[1]));
+		setYear(Integer.parseInt(dates[2]));	
+	}
+
+
+	public int getHour() {
+		return hour;
+	}
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+	public int getMinute() {
+		return minute;
+	}
+	public void setMinute(int minute) {
+		this.minute = minute;
+	}
+	public int getSecounds() {
+		return secounds;
+	}
+	public void setSecounds(int secounds) {
+		this.secounds = secounds;
+	}
+	public int getDay() {
+		return day;
+	}
+	public void setDay(int day) {
+		this.day = day;
+	}
+	public int getMonth() {
+		return month;
+	}
+	public void setMonth(int month) {
+		this.month = month;
+	}
+	public int getYear() {
+		return year;
+	}
+	public void setYear(int year) {
+		this.year = year;
+	}
+	
+	public String now(){
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat date = new SimpleDateFormat("HH:mm:ss");
+		return date.format(cal.getTime());
+	}
+	
+	@Override
+	public String toString(){
+		return getHour() + ":" + getMinute() + ":" + getSecounds() + " " + getDay() "/" + getMonth() + "/" + getYear();
+	}
+}

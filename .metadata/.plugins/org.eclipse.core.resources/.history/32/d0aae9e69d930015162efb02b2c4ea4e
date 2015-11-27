@@ -1,0 +1,11 @@
+package WednesdayOOP.FastAndFurious;
+
+public class Audi extends Car{
+
+	@Override
+	public boolean isEcoFriendly(boolean testing) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

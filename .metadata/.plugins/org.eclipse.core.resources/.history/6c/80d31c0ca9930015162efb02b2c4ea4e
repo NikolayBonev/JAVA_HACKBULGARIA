@@ -1,0 +1,75 @@
+package WednesdayOOP.StackEm;
+
+import java.util.ArrayList;
+
+public class StackImpl implements Stack{
+	private ArrayList<Object> stack;
+	private int length;
+	
+	public StackImpl() {
+		setStack(new ArrayList<Object>());
+		setLength(0);
+	}
+	
+	public StackImpl(int capacity){
+		setStack(new ArrayList<Object>(capacity));
+		setLength(0);
+	}
+	
+	public ArrayList<Object> getStack() {
+		return stack;
+	}
+
+	public void setStack(ArrayList<Object> stack) {
+		this.stack = stack;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	@Override
+	public void push(Object obj) {
+		getStack().add(obj);
+		setLength(getLength() + 1);
+	}
+	@Override
+	public Object pop() {
+		
+		return getStack().get(getLength() - 1);
+	}
+	@Override
+	public int length() {
+		return this.length;
+	}
+	@Override
+	public void clear() {
+		
+		this.stack = new ArrayList<Object>();
+		setLength(0);
+	}
+	@Override
+	public boolean isEmpty() {
+		
+		if(length() > 0){
+			return true;
+		}
+		return false;
+	}
+	@Override
+	public Object peek() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void remove() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

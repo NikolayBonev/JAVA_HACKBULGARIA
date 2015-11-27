@@ -1,0 +1,7 @@
+package WednesdayOOP.StackEm;
+
+public class DuplicateElementExeption {
+	public DuplicateElementExeption(String message) {
+		super(message);
+	}
+}

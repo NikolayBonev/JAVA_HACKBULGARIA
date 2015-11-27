@@ -1,0 +1,9 @@
+package WednesdayOOP.StackEm;
+
+public interface Stack {
+	public abstract void push(Object obj);
+	public abstract Object pop();
+	public abstract int length();
+	public abstract void clear();
+	private abstract boolean isEmpty();
+}

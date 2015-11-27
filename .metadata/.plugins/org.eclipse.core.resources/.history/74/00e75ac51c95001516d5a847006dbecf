@@ -1,0 +1,116 @@
+package WednesdayOOP.StackEm;
+
+public class StackImpl<E> implements Stack<E>{
+	
+	private class Node<E>{
+		Node<E> prevNode;
+		E item;
+		
+		public Node() {
+			prevNode = null;
+			item = null;
+		}
+		
+		public Node(E item){
+			this();
+			
+			if(item == null){
+				throw new NullPointerException();
+			}else{
+				this.item = item;
+			}
+		}
+		
+		public Node(Node<E> newHead, Node<E> oldHead){
+			newHead.prevNode = oldHead;
+		}
+
+		public E getItem() {
+			return this.item;
+		}
+
+		public void setItem(E item) {
+			this.item = item;
+		}
+	}
+	
+	private Node top;
+	private int size = 0;
+	
+	public StackImpl() {
+
+	}
+
+	public Node getTop() {
+		return top;
+	}
+
+	public void setTop(Node top) {
+		this.top = top;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public void push(E obj) {
+		Node newNode = new Node(obj);
+		
+		if(getTop() == null){
+			setTop(newNode);
+		}else{
+			newNode.prevNode = getTop();
+			setTop(newNode);
+		}
+		
+		setSize(getSize() + 1);
+	}
+	
+	@Override
+	public E pop() {
+		Node swapNode = getTop();
+		setTop(getTop().prevNode);
+		
+		return (E) swapNode.getItem();
+	}
+	@Override
+	public void clear() {
+		setTop(null);
+	}
+	@Override
+	public E peek() {
+		return (E) getTop().getItem();
+	}
+	@Override
+	public int size() {
+		return getSize();
+	}
+	@Override
+	public boolean isEmpty() {
+		
+		if(getSize() > 0){
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean contains(E item) {
+		Node swapNode = getTop();
+		
+		for(int i = 0; i < getSize(); i++){
+			if(swapNode.getItem().equals(item)){
+				return true;
+			}
+			
+			swapNode = swapNode.prevNode;
+		}
+		
+		return false;
+	}
+}
