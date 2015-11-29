@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Exercise</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/Task19_20_isPalindrome.java</name>
+			<type>1</type>
+			<location>/root/Documents/JAVA_HACKBULGARIA/Week1/Wednesday/Exercises/src/Task19_20_isPalindrome.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>

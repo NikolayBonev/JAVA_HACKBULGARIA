@@ -1,6 +1,6 @@
 public class Test {
 	public static void main(String[] args){
 		
-		System.out.println(UniqueWordsCount.uniqueWordsCount(new String[] {"HELLO!", "HELLO!", "HELLO!", "HELLO!"}));
+		System.out.println(LucasSeries.nthLucas(5));
 	}
 }

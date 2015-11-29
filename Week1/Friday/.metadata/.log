@@ -1,0 +1,20 @@
+!SESSION 2015-11-29 17:40:27.848 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data /root/Documents/JAVA_HACKBULGARIA/Week1/Friday -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-29 17:55:13.368
+!MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2015-11-29 17:56:01.733 -----------------------------------------------
+eclipse.buildId=4.5.1.M20150904-0015
+java.version=1.8.0_66
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -data /root/Documents/JAVA_HACKBULGARIA/Week1/Friday -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-11-29 17:56:07.390
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

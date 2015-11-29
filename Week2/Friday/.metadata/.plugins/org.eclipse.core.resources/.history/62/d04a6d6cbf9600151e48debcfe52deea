@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Calculator {
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("Hello!\n\n");
+		String inp = null;
+		while(true){
+			System.out.print("Enter expression:> ");
+			inp = input.nextLine();
+			if(Balanced(inp)){
+				
+			}else{
+				System.out.println("Invalid input!");
+			}
+		}
+	}
+	
+	private static double calculator(String eq){
+		
+	}
+	
+	public static boolean Balanced(String input){
+        Stack<Character> stack = new Stack<Character>();
+
+        for(char ch : input.toCharArray()){
+            switch(ch) {
+                case '(':{
+                    stack.push(ch);
+                    break;
+                }
+                case ')':{
+                    if(stack.isEmpty() || stack.pop() != '('){
+                        return false;
+                    }
+                    break;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}

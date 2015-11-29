@@ -1,0 +1,11 @@
+
+public class Calculator {
+	public static void main(String[] args){
+		
+		System.out.println("Hello!\n\n");
+		
+		while(true){
+			System.out.print("Enter expression:> ");
+		}
+	}
+}
