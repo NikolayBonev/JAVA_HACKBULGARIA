@@ -1,0 +1,40 @@
+package exercises;
+
+public class MathFunctions{
+	
+	public static <T extends Number, E extends Number> Number multiplication(T num1, E num2){
+		if(num1 instanceof Double || num2 instanceof Double){
+			return num1.doubleValue() * num2.doubleValue();
+		}else if(num1 instanceof Float || num2 instanceof Float){
+			return num1.floatValue() * num2.floatValue();
+		}else if(num1 instanceof Long || num2 instanceof Long){
+			return num1.longValue() * num2.longValue();
+		}else{
+			return num1.intValue() + num2.intValue();
+		}
+	}
+	
+	public static <K extends Number, E extends Number> Number subtraction(K num1, E num2){
+		if(num1 instanceof Double || num2 instanceof Double){
+			return num1.doubleValue() - num2.doubleValue();
+		}else if(num1 instanceof Float || num2 instanceof Float){
+			return num1.floatValue() - num2.floatValue();
+		}else if(num1 instanceof Long || num2 instanceof Long){
+			return num1.longValue() - num2.longValue();
+		}else{
+			return num1.intValue() - num2.intValue();
+		}
+	}
+	
+	public static <K extends Number, E extends Number> Number sum(K num1, E num2){
+		if(num1 instanceof Double || num2 instanceof Double){
+			return num1.doubleValue() + num2.doubleValue();
+		}else if(num1 instanceof Float || num2 instanceof Float){
+			return num1.floatValue() + num2.floatValue();
+		}else if(num1 instanceof Long || num2 instanceof Long){
+			return num1.longValue() + num2.longValue();
+		}else{
+			return num1.intValue() + num2.intValue();
+		}
+	}
+}

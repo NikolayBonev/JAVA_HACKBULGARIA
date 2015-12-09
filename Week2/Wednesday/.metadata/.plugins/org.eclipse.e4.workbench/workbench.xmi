@@ -230,26 +230,21 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_IC1ogJUqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.editorss" selectedElement="_IC1ogZUqEeWq9Y0PiOonOA">
-      <children xsi:type="basic:PartStack" xmi:id="_IC1ogZUqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_mfqx0JU_EeWq9Y0PiOonOA">
+      <children xsi:type="basic:PartStack" xmi:id="_IC1ogZUqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_N6GKQJU_EeWq9Y0PiOonOA">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
+        <tags>noFocus</tags>
         <children xsi:type="basic:Part" xmi:id="_N6GKQJU_EeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Matrix.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Matrix.java&quot; partName=&quot;Matrix.java&quot; title=&quot;Matrix.java&quot; tooltip=&quot;TheOne/src/Matrix.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TheOne/src/Matrix.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;86&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_mfqx0JU_EeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="MatrixOperation.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MatrixOperation.java&quot; partName=&quot;MatrixOperation.java&quot; title=&quot;MatrixOperation.java&quot; tooltip=&quot;TheOne/src/MatrixOperation.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TheOne/src/MatrixOperation.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;65&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
           <tags>active</tags>
           <tags>activeOnClose</tags>
         </children>
-        <children xsi:type="basic:Part" xmi:id="_0fyBIJVAEeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Pixel.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Pixel.java&quot; partName=&quot;Pixel.java&quot; title=&quot;Pixel.java&quot; tooltip=&quot;TheOne/src/Pixel.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TheOne/src/Pixel.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_mfqx0JU_EeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="MatrixOperation.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MatrixOperation.java&quot; partName=&quot;MatrixOperation.java&quot; title=&quot;MatrixOperation.java&quot; tooltip=&quot;TheOne/src/MatrixOperation.java&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/TheOne/src/MatrixOperation.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;65&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -404,7 +399,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_HT7UEJUqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nnHj8JaxEeWnZc1OYzW0_A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_FxDMGpUqEeWq9Y0PiOonOA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_63bMMJ6iEeWk_9l4rAthYQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_FxDMGpUqEeWq9Y0PiOonOA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_HT8iMJUqEeWq9Y0PiOonOA" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -437,7 +432,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_HT9wUJUqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_nnYCoJaxEeWnZc1OYzW0_A" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Fw_hu5UqEeWq9Y0PiOonOA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_633REJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_Fw_hu5UqEeWq9Y0PiOonOA"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_HT-XYJUqEeWq9Y0PiOonOA" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1028,6 +1023,11 @@
   <bindingTables xmi:id="_IDZpMZUqEeWq9Y0PiOonOA" bindingContext="_IDZpMJUqEeWq9Y0PiOonOA"/>
   <bindingTables xmi:id="_IDaQQZUqEeWq9Y0PiOonOA" bindingContext="_IDaQQJUqEeWq9Y0PiOonOA"/>
   <bindingTables xmi:id="_IDa3UZUqEeWq9Y0PiOonOA" bindingContext="_IDa3UJUqEeWq9Y0PiOonOA"/>
+  <bindingTables xmi:id="_5BnhIJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.diagramEditor" bindingContext="_4-fUoJ6iEeWk_9l4rAthYQ">
+    <bindings xmi:id="_5BuO0J6iEeWk_9l4rAthYQ" keySequence="CTRL+O" command="_4-UVgJ6iEeWk_9l4rAthYQ"/>
+    <bindings xmi:id="_5B08gJ6iEeWk_9l4rAthYQ" keySequence="CTRL+F5" command="_4-SgUJ6iEeWk_9l4rAthYQ"/>
+    <bindings xmi:id="_5B6cEJ6iEeWk_9l4rAthYQ" keySequence="SHIFT+DEL" command="_4-UVgZ6iEeWk_9l4rAthYQ"/>
+  </bindingTables>
   <rootContext xmi:id="_Fub88pUqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_Fub885UqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_Fub89JUqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -1086,6 +1086,7 @@
       <children xmi:id="_FxXVLpUqEeWq9Y0PiOonOA" elementId="org.eclipse.tm.terminal.TerminalContext" name="Terminal Typing Connected" description="Override ALT+x menu access keys while typing into the Terminal"/>
       <children xmi:id="_FxXVMpUqEeWq9Y0PiOonOA" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" name="In Tasks View"/>
       <children xmi:id="_FxX8M5UqEeWq9Y0PiOonOA" elementId="org.eclipse.egit.ui.RepositoriesView" name="In Git Repositories View"/>
+      <children xmi:id="_4-fUoJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.diagramEditor" name="Graphiti Diagram"/>
     </children>
     <children xmi:id="_Fub89ZUqEeWq9Y0PiOonOA" elementId="org.eclipse.ui.contexts.dialog" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs" description="A dialog is open"/>
   </rootContext>
@@ -1511,6 +1512,10 @@
   <descriptors xmi:id="_GDrNIJUqEeWq9Y0PiOonOA" elementId="org.eclipse.wst.xsl.ui.view.outline" label="Stylesheet Model" iconURI="platform:/plugin/org.eclipse.wst.xsl.ui/icons/full/hierarchy.gif" tooltip="" category="XML" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:XML</tags>
+  </descriptors>
+  <descriptors xmi:id="_5NmusJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.internal.editor.thumbnailview" label="Miniature View" iconURI="platform:/plugin/org.eclipse.graphiti.ui/icons/outline/thumbnail.gif" tooltip="" category="General" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
   </descriptors>
   <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
     <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
@@ -2725,6 +2730,13 @@
   <commands xmi:id="_G_1TYJUqEeWq9Y0PiOonOA" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.this" commandName="Show 'this' variable" description="Show or hide the this variable" category="_FwNelpUqEeWq9Y0PiOonOA"/>
   <commands xmi:id="_G_16cJUqEeWq9Y0PiOonOA" elementId="AUTOGEN:::variableViewActions/org.eclipse.wst.jsdt.debug.ui.variableview.show.prototypes" commandName="Show proto variables" description="Show or hide proto variables" category="_FwNelpUqEeWq9Y0PiOonOA"/>
   <commands xmi:id="_G_2hgJUqEeWq9Y0PiOonOA" elementId="AUTOGEN:::org.eclipse.ui.articles.action.contribution.view/org.eclipse.wst.wsi.ui.internal.actions.actionDelegates.ValidateWSIProfileActionDelegate" commandName="WS-I Profile Validator" description="Validate WS-I Message Log File" category="_FwNelpUqEeWq9Y0PiOonOA"/>
+  <commands xmi:id="_4-SgUJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.internal.action.UpdateAction" commandName="Update" description="Update selected Pictogram Elements" category="_4-PdAJ6iEeWk_9l4rAthYQ"/>
+  <commands xmi:id="_4-THYJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.internal.action.ToggleContextPadAction" commandName="Hide Context Buttons" description="Toggle hiding the context buttons" category="_4-PdAJ6iEeWk_9l4rAthYQ"/>
+  <commands xmi:id="_4-TucJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.featureExecutionCommand" commandName="Feature execution" description="Execute a custom feature on selected Pictogram Elements" category="_4-PdAJ6iEeWk_9l4rAthYQ">
+    <parameters xmi:id="_4-TucZ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.featureHint" name="Hint" optional="false"/>
+  </commands>
+  <commands xmi:id="_4-UVgJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.internal.action.SaveImageAction" commandName="Export Diagram" description="Export Diagram" category="_4-PdAJ6iEeWk_9l4rAthYQ"/>
+  <commands xmi:id="_4-UVgZ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.internal.action.RemoveAction" commandName="Remove" description="Remove selected Pictogram Elements" category="_4-PdAJ6iEeWk_9l4rAthYQ"/>
   <addons xmi:id="_Fub89pUqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_Fub895UqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_Fub8-JUqEeWq9Y0PiOonOA" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2785,4 +2797,5 @@
   <categories xmi:id="_FwNelZUqEeWq9Y0PiOonOA" elementId="org.eclipse.oomph.commands" name="Oomph"/>
   <categories xmi:id="_FwNelpUqEeWq9Y0PiOonOA" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
   <categories xmi:id="_FwNel5UqEeWq9Y0PiOonOA" elementId="org.eclipse.wst.jsdt.ui.category.refactoring" name="Refactor - JavaScript" description="JavaScript Refactoring Actions"/>
+  <categories xmi:id="_4-PdAJ6iEeWk_9l4rAthYQ" elementId="org.eclipse.graphiti.ui.Graphiti_Category" name="Edit" description="Graphiti Diagram Editor"/>
 </application:Application>
