@@ -1,0 +1,38 @@
+package vatTaxCalculator;
+
+import java.util.HashMap;
+
+public class CountryManager {
+	private static CountryManager countryManager = null;
+	private HashMap<String, Country> list = new HashMap<>();
+	private String defaultCountryId;
+	
+	private CountryManager(){
+	}
+	
+	public static CountryManager getInstance(){
+		if(countryManager == null){
+			countryManager = new CountryManager();
+		}
+		
+		return countryManager;
+	}
+	
+	public Country getCountry(String countryId) throws NotSupportedCountryException{
+		
+		if(!list.containsKey(countryId)){
+			throw new NotSupportedCountryException();
+		}
+		return list.get(countryId);
+	}
+	
+	public void add(Country country){
+		list.put(country.getIdCountry(), country);
+	}
+	
+	public void add(Country... countries){
+		for(int i = 0 ; i < countries.length ; i++){
+			list.put(countries[i].getIdCountry(), countries[i]);
+		}
+	}
+}

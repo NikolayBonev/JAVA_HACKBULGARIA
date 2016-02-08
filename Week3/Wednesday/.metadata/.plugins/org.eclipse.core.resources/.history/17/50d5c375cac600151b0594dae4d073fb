@@ -1,0 +1,29 @@
+import java.util.*;
+
+public class ReverseCollection<E> {
+	public static <E> void reverse (Collection<E> collection){
+		List<E> arrList = new ArrayList(collection);
+				
+		while(arrList.listIterator().hasPrevious()){
+			collection.add(arrList.listIterator().previous());
+		}
+	}
+	
+	public static void main(String[] args){
+		Queue<Integer> list = new LinkedList<>();
+		
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		
+		for(Integer i : list){
+			System.out.println(i);
+		}
+		
+		reverse(list);
+		
+		for(Integer i : list){
+			System.out.println(i);
+		}
+	}
+}

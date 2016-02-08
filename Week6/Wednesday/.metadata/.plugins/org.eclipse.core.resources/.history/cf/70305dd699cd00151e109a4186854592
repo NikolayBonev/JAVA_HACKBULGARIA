@@ -1,0 +1,36 @@
+
+public class UserInputChecker {
+	interface Validator{
+		 public boolean validate(String input);
+	}
+	
+	class PersonNameValidator{
+		
+	}
+	
+	class BulgarianPhoneNumberValidator{
+		
+	}
+	
+	class PersonAgeValidator{
+		
+	}
+
+	class CreditCardNumberValidator{
+		
+	}
+
+	class IpVersion4Validator{
+		
+	}
+
+	class IpVersion6Validator{
+		
+	}
+
+	class MacAddressValidator{
+		
+	}
+
+
+}

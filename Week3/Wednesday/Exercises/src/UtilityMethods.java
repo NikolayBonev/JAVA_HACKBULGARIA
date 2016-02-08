@@ -1,0 +1,74 @@
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class UtilityMethods {
+	public static <T> void rotate(Collection<T> collection, int step){	
+		for(int i = 0 ; i < Math.abs(step) ; i++){
+			ReverseCollection.reverse(collection);
+		}
+	}
+	
+	public static <T> T findUnique(Collection<T> collection){
+		List<T> list = new ArrayList<>(collection);
+		
+		for(int i = 0 ; i < list.size() ; i++){
+			T swap = list.get(i);
+			list.remove(swap);
+			
+			if(!list.contains(swap)){
+				return swap;
+			}
+		}
+		
+		return null;
+	}
+	
+	public static <T> Collection<T> findDuplicates(Collection<T> a, Collection<T> b, Collection<T> c){
+		Set<T> firstSet = new HashSet<>(a);
+		Set<T> secSet = new HashSet<>(b);
+		Set<T> thSet = new HashSet<>(c);
+		Set<T> result = new HashSet<>();
+		
+		for(T element : firstSet){
+			if(!secSet.add(element) && !thSet.add(element)){
+				result.add(element);
+			}
+		}
+		
+		return result;
+	}
+	
+	public static String hashMapToText(Map<? extends Object, ? extends Object> map){
+		StringBuilder result = new StringBuilder();
+		
+		for(Map.Entry<? extends Object, ? extends Object> entry : map.entrySet()){
+			result.append(entry.getKey().toString());
+			result.append(":");
+			result.append(entry.getValue().toString());
+			result.append(",");
+		}
+		return result.toString();
+	}
+	
+	public static Map<String, Integer> textToMap(String text){
+		Pattern pattern = Pattern.compile("\\w+");
+		Map<String, Integer> result = new HashMap<>();
+		
+		Matcher matcher = pattern.matcher(text);
+		
+		String currentWord = null;
+		
+		while(matcher.find()){
+			currentWord = matcher.group();
+			
+			if(!result.containsKey(currentWord)){
+				result.put(currentWord, 1);
+			}else{
+				result.put(currentWord, result.get(currentWord) +1);
+			}
+		}
+		
+		return result;
+	}
+}

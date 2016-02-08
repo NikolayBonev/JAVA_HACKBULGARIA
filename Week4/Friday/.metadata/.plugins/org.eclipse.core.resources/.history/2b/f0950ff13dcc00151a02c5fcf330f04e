@@ -1,0 +1,119 @@
+
+final public class Rectangle {
+	private Point upperLeft;
+	private Point lowerRight;
+	
+	public Rectangle(Point upperLeft, Point lowerRight){
+		if((upperLeft.getX() - lowerRight.getX() == 0) || (upperLeft.getY() - lowerRight.getY() == 0)){
+			System.out.println("Points are on the same axis.");
+			
+			return;
+		}
+		
+		this.upperLeft = upperLeft;
+		this.lowerRight = lowerRight;
+	}
+	
+	public Rectangle(Rectangle rectangle){
+		this(rectangle.getUpperLeft(), rectangle.getLowerRight());
+	}
+
+	public Point getUpperLeft() {
+		return this.upperLeft;
+	}
+
+	public Point getLowerRight() {
+		return this.lowerRight;
+	}
+	
+	public Point getLowerLeft(){
+		Point lowerLeft = new Point(this.upperLeft.getX(), this.lowerRight.getY());
+		
+		return lowerLeft;
+	}
+	
+	public Point getUpperRight(){
+		Point upperRight = new Point(this.lowerRight.getX(), this.upperLeft.getY());
+		
+		return upperRight;
+	}
+	
+	public LineSegment getAB(){
+		LineSegment lineAB = new LineSegment(getUpperLeft(), getLowerLeft());
+		
+		return lineAB;
+	}
+	
+	public LineSegment getAD(){
+		LineSegment lineAD = new LineSegment(getUpperLeft(), getUpperRight());
+		
+		return lineAD;
+	}
+	
+	public LineSegment getBC(){
+		LineSegment lineBC = new LineSegment(getLowerLeft(), getLowerRight());
+		
+		return lineBC;
+	}
+	
+	public LineSegment getCD(){
+		LineSegment lineCD = new LineSegment(getLowerRight(), getUpperRight());
+		
+		return lineCD;
+	}
+	
+	public double getHeight(){
+		LineSegment line = this.getAB();
+		
+		return line.getLength();
+	}
+	
+	public double getWidth(){
+		LineSegment line = this.getBC();
+		
+		return line.getLength();
+	}
+	
+	public String getCenter(){
+		double xCenter = this.upperLeft.getX() + getWidth()/2;
+		double yCenter = this.lowerRight.getY() + getHeight()/2;
+		
+		Point center = new Point(xCenter, yCenter);
+		
+		return center.toString();
+	}
+	
+	public double getPerimeter(){
+		return 2*(getHeight() + getWidth());
+	}
+	
+	public double getArea(){
+		return getHeight()*getWidth();
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("Rectangle[(%d,%d), (%f,%f)]", this.upperLeft.getX(), this.upperLeft.getY(), getHeight(), getWidth());
+	}
+	
+	@Override
+	public int hashCode() {
+		int hash = this.upperLeft.hashCode() + this.lowerRight.hashCode();
+		
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Rectangle)){
+			return false;
+		}
+		
+		Rectangle rectangle = (Rectangle) obj;
+		
+		if(this.hashCode() == rectangle.hashCode()){
+			return true;
+		}
+		return false;
+	}
+}

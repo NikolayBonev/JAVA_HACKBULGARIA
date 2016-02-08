@@ -1,0 +1,54 @@
+package Statistics;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class StatisticsImp implements Statistics{
+	private List<Integer> elements = new ArrayList<Integer>();
+	
+	public void add(int element){
+		elements.add(element);
+		
+		Collections.sort(elements);
+	}
+	
+	@Override
+	public double getMean() {
+		BigDecimal result = BigDecimal.ZERO;
+		
+		for(int i : elements){
+			Integer elementCount = count.get(i);
+			
+			result.add(new BigDecimal(i*elementCount));
+		}
+		
+		return result.doubleValue()/countElements.doubleValue();
+	}
+
+	@Override
+	public double getMedian() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getMode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getRange() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

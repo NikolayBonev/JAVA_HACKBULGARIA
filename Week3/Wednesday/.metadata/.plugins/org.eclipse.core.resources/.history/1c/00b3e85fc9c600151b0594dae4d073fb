@@ -1,0 +1,14 @@
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class ReverseCollection<E> {
+	public static <E> Collection<E> reverse (Collection<E> collection){
+		List<E> arrList = new ArrayList(collection);
+				
+		while(arrList.listIterator().hasPrevious()){
+			collection.add(arrList.listIterator().previous());
+		}
+		
+		return collection;
+	}
+}

@@ -1,0 +1,48 @@
+package ToDoListTasks;
+
+public class Task {
+	private Priority priority;
+	private int timeToDo;
+	private String Description;
+	
+	
+	
+	public Task(Priority priority, int timeToDo) {
+		this(priority, timeToDo, null);
+	}
+
+	public Task(Priority priority, int timeToDo, String description) {
+		super();
+		setPriority(priority);
+		setTimeToDo(timeToDo);
+		setDescription(description);
+	}
+	
+	public Priority getPriority() {
+		return priority;
+	}
+	public void setPriority(Priority priority) {
+		this.priority = priority;
+	}
+	public int getTimeToDo() {
+		return this.timeToDo;
+	}
+	public void setTimeToDo(int timeToDo) {
+		this.timeToDo = timeToDo;
+	}
+	public String getDescription() {
+		return this.Description;
+	}
+	public void setDescription(String description) {
+		Description = description;
+	}
+	
+	
+	
+}
+
+enum Priority{
+	MIN,
+	AVERAGE,
+	MAX;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Vector"/>
+<fullyQualifiedTypeName name="vatTaxCalculator.NotSupportedCountryException"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="vatTaxCalculator.Country"/>
+<fullyQualifiedTypeName name="vatTaxCalculator.CountryManager"/>
+<fullyQualifiedTypeName name="vatTaxCalculator.VatTaxCalculator"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Shop.Product"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="Shop.Order"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="Shop.NotAvailableInInventoryException"/>
+</qualifiedTypeNameHistroy>

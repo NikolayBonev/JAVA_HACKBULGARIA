@@ -1,0 +1,54 @@
+package Statistics;
+
+import java.math.*;
+import java.util.*;
+
+public class StatisticsImp implements Statistics{
+	private List<Integer> elements = new ArrayList<Integer>();
+	
+	public void add(int element){
+		elements.add(element);
+		
+		Collections.sort(elements);
+	}
+	
+	@Override
+	public double getMean() {
+		double result = 0.0;
+		
+		for(int element : elements){
+			result += element;
+		}
+		
+		return result/elements.size();
+	}
+
+	@Override
+	public double getMedian() {
+		int count = elements.size();
+		
+		if(count != 0){
+			if(count %2 == 0){
+				System.out.println(elements.get((count/2 -1)));
+				return (elements.get(count/2 -1) + elements.get(count/2))/2;
+			}else{
+				return elements.get(count%2);
+			}
+		}
+		
+		return 0;
+	}
+
+	@Override
+	public double getMode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getRange() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

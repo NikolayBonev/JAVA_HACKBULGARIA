@@ -1,0 +1,43 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class CLI {
+	private Map<String, BankAccount> acc = new HashMap<>();
+	private Bank bank = new Bank();
+	Scanner sc = new Scanner("System.in");
+	
+	public void menu(){	
+		while(true){
+			System.out.println("Menu:\\n1.Create account\\n2.Show history\\n3.Add money\\n4.Withdraw money\\n5.Transfer money\\n6.Calculate amount");
+			System.out.println("Choose option:");
+			
+			int option;
+			
+			while(true){
+				if(sc.hasNextInt()){
+					option = sc.nextInt();
+					
+					if(option >= 1 && option <= 6){
+						break;
+					}
+				}else{
+					System.out.println("Invalid option!");
+				}
+			}
+			
+			switch (option) {
+			case 1:
+				
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
+	
+	private void createAccount(){
+		
+	}
+}

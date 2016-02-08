@@ -1,0 +1,7 @@
+package Shop;
+
+import java.util.*;
+
+public class ShopInventory {
+	List<Product> products = new ArrayList<Product>();
+}

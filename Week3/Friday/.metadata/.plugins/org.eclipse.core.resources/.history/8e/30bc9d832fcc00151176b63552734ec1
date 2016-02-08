@@ -1,0 +1,11 @@
+package StudentsGrades;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+public class SorterStudents {
+	public static void sortByGrade(List<Student> students){
+		Collections.sort(students, ComparatorStudents);
+	}
+}

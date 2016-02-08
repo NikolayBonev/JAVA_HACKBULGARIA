@@ -1,0 +1,99 @@
+
+public class BankAccount {
+	private String firstName;
+	private String lastName;
+	private int age;
+	private int id;
+	private double balance;
+	private double interest;
+	private boolean typeInterest;
+	
+	public BankAccount(String firstName, String lastName, int age, int id, double balance, double interest, boolean typeInterest) {
+		setFirstName(firstName);
+		setLastName(lastName);
+		setAge(age);
+		
+		if(balance < 0){
+			throw new IllegalArgumentException("Balance can't be negative!");
+		}
+		
+		setId(id);
+		setBalance(balance);
+		setInterest(interest);
+		setTypeInterest(typeInterest);
+	}
+	
+	public String getFirstName() {
+		return this.firstName;
+	}
+	public void setFirstName(String firstName) {
+		if(firstName.length() == 0 || firstName.matches("^[\\w+]")){
+			throw new IllegalArgumentException("Invalid first name!");
+		}
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return this.lastName;
+	}
+	public void setLastName(String lastName) {
+		if(lastName.length() == 0 || lastName.matches("^[\\w+]")){
+			throw new IllegalArgumentException("Invalid last name!");
+		}
+		
+		this.lastName = lastName;
+	}
+	public int getAge() {
+		return this.age;
+	}
+	public void setAge(int age) {
+		if(age < 0){
+			throw new IllegalArgumentException("The age has to be greater than zero!");
+		}
+		
+		this.age = age;
+	}
+	public int getId() {
+		return this.id;
+	}
+	public void setId(int id) {
+		if(id < 0){
+			throw new IllegalArgumentException("Id has to be greater!");
+		}
+		
+		this.id = id;
+	}
+	public double getBalance() {
+		return this.balance;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public double getInterest() {
+		return this.interest;
+	}
+	public void setInterest(double interest) {		
+		this.interest = interest;
+	}
+	public boolean getTypeInterest() {
+		return this.typeInterest;
+	}
+	public void setTypeInterest(boolean typeInterest) {
+		this.typeInterest = typeInterest;
+	}
+	
+	public void add(double sum){
+		this.setBalance(this.getBalance() + sum);
+	}
+	
+	public void withdraw(double sum){
+		if(this.interest <= 1){
+			this.setBalance(this.getBalance() - sum);
+		}else{
+			System.out.println("Can't withdraw!");
+		}
+	}
+	
+	public void transfer(double sum){
+		this.setBalance(this.getBalance() - sum);
+	}
+}

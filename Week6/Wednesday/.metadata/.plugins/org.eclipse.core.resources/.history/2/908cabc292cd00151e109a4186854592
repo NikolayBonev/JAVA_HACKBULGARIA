@@ -1,0 +1,14 @@
+import java.util.List;
+
+public class FunnyArraySorter {
+	private int pivot;
+	
+	public FunnyArraySorter(int pivot) {
+		this.pivot = pivot;
+	}
+	
+	public void reverseSort(List list){
+		
+	}
+	
+}

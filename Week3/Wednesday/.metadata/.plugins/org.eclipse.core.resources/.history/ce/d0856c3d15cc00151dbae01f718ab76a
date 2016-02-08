@@ -1,0 +1,15 @@
+import Statistics.*;
+
+public class Test {
+	public static void main(String args[]){
+		StatisticsImp stat = new StatisticsImp();
+		
+		stat.add(5);
+		stat.add(6);
+		stat.add(1);
+		stat.add(1);
+		
+		System.out.println(stat.getMean());
+		System.out.println(stat.getMedian());
+	}
+}

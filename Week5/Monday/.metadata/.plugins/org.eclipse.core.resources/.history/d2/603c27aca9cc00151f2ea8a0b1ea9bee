@@ -1,0 +1,18 @@
+
+public class Vector {
+	private double[] coordinates;
+
+	public Vector(double... coordinates) {
+		this.coordinates = new double[coordinates.length];
+		
+		for(int i = 0; i < coordinates.length ; i++){
+			this.coordinates[i] = coordinates[i];
+		}
+	}
+	
+	public Vector(Vector vector){
+		this(vector.coordinates);
+	}
+	
+	
+}

@@ -1,0 +1,28 @@
+package vatTaxCalculator;
+
+public class Country {
+	private String name;
+	private String IdCountry;
+	private double vatTax;
+	
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIdCountry() {
+		return this.IdCountry;
+	}
+	public void setIdCountry(String idCountry) {
+		this.IdCountry = idCountry;
+	}
+	public double getVatTax() {
+		return this.vatTax;
+	}
+	public void setVatTax(double vatTax) {
+		this.vatTax = vatTax;
+	}
+	
+	
+}

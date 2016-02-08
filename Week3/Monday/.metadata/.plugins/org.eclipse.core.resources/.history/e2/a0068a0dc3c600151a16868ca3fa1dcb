@@ -1,0 +1,31 @@
+package exercises;
+
+public class MathFunctions{
+	
+	public static <T extends Number, E extends Number> double multiplication(T num1, E num2){
+		return num1.doubleValue() * num2.doubleValue();
+	}
+	
+	public static <T extends Number, E extends Number> double power(T num1, E num2){
+		double result = num1.doubleValue();
+		
+		for(int i = 1 ; i < num2.intValue(); i++){
+			result = multiplication(result, num1);
+		}
+		
+		return result;
+	}
+	
+	public static <T extends Number, E extends Number> double division(T num1, E num2){
+		return num1.doubleValue() / num2.doubleValue();
+	}
+	
+	public static <K extends Number, E extends Number> double subtraction(K num1, E num2){
+		return num1.doubleValue() - num2.doubleValue();
+		
+	}
+	
+	public static <K extends Number, E extends Number> double sum(K num1, E num2){
+		return num1.doubleValue() + num2.doubleValue();
+	}
+}

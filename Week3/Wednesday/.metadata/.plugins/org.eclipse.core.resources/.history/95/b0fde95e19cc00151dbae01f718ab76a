@@ -1,0 +1,8 @@
+package Statistics;
+
+public interface Statistics {
+	public double getMean();
+	public double getMedian();
+	public double getMode();
+	public double getRange();
+}

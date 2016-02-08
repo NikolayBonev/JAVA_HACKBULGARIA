@@ -1,0 +1,8 @@
+
+public class UserInputChecker {
+	interface Validator{
+		 public boolean validate(String input);
+	}
+	
+	
+}

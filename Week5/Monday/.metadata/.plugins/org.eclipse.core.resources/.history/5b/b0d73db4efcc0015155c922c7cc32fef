@@ -1,0 +1,27 @@
+package Shop;
+
+public class Product {
+	private String countryId;
+	private double price;
+	private double priceVAT;
+	private String name;
+	private int productId;
+	private int quantity;
+	
+	public Product(String countryId, double price, String name, int productId, int quantity) {
+		this.countryId = countryId;
+		this.price = price;
+		this.name = name;
+		this.productId = productId;
+		this.quantity = quantity;
+	}
+	
+	public double getPriceVAT() {
+		return priceVAT;
+	}
+
+	public void setPriceVAT(double priceVAT) {
+		this.priceVAT = priceVAT;
+	}
+
+}

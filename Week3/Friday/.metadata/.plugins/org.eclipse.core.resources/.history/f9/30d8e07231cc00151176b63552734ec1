@@ -1,0 +1,22 @@
+package ToDoListTasks;
+
+public class ToDoList {
+	public void add(Task t){
+		
+	}
+	
+	public void markFinished(Task t){
+		
+	}
+	
+	public void markCancelled(Task t){
+		
+	}
+	
+	public Task getTop(){
+		return null;
+		
+	}
+	
+	
+}

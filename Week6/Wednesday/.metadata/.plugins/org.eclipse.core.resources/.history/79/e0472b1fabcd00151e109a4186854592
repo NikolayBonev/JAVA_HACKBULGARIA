@@ -1,0 +1,42 @@
+
+public class BinarySearchTree<T> {
+	
+	class Node<E>{
+		private E value;
+		private Node<E> left;
+		private Node<E> right;
+		
+		public Node(E value){
+			this.value = value;
+			this.left = null;
+			this.right = null;
+		}
+		
+		public Node(Node<E> node){
+			this.value = node.getValue();
+			this.left = node.left;
+			this.right = node.right;
+		}
+
+		public T getValue() {
+			return value;
+		}
+
+		public void setValue(T value) {
+			this.value = value;
+		}
+	}
+	
+	private Node<T> root = null;
+	
+	public BinarySearchTree(){
+	}
+	
+	public BinarySearchTree(T value){
+		root = new Node<T>(value);
+	}
+	
+	public BinarySearchTree(BinarySearchTree<T>.Node<T> node){
+		root = new Node<T>(node);
+	}
+}

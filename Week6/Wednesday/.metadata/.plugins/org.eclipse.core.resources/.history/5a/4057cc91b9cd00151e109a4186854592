@@ -1,0 +1,195 @@
+import java.util.NoSuchElementException;
+
+public class BinarySearchTree<T extends Comparable<T>> {
+	
+	class Node<T>{
+		private T value;
+		private Node<T> left;
+		private Node<T> right;
+		
+		public Node(T value){
+			this.value = value;
+			this.left = null;
+			this.right = null;
+		}
+		
+		public Node(Node<T> node){
+			this.value = node.getValue();
+			this.left = node.left;
+			this.right = node.right;
+		}
+
+		public T getValue() {
+			return value;
+		}
+
+		public void setValue(T value) {
+			this.value = value;
+		}
+	}
+	
+	private Node<T> root = null;
+	
+	public BinarySearchTree(){
+	}
+	
+	public BinarySearchTree(T value){
+		root = new Node<T>(value);
+	}
+	
+	public BinarySearchTree(Node<T> node){
+		root = new Node<T>(node);
+	}
+	
+	public void add(T value){
+		root = add(value, root);
+	}
+	
+	private Node<T> add(T value, Node<T> swapNode){
+		if(swapNode == null){
+			swapNode = new Node<T>(value);
+		}else if(value.compareTo(swapNode.getValue()) < 0){
+			swapNode.left = add(value, swapNode.left);
+		}else if(value.compareTo(swapNode.getValue()) > 0){
+			swapNode.right = add(value, swapNode.right);
+		}
+		
+		return swapNode;
+	}
+	
+	public void add(Node<T> node){
+		add(root, node);
+	}
+	
+	private void add(Node<T> swap , Node<T> node){
+		while(true){
+			if(node.getValue().compareTo(swap.getValue()) < 0){
+				if(swap.left == null){
+					swap.left = node;
+					return;
+				}
+				
+				add(swap.left, node);
+			}else if(node.getValue().compareTo(swap.getValue()) > 0){
+				if(swap.right == null){
+					swap.right = node;
+					return;
+				}
+				
+				add(swap.right, node);
+			}else{
+				return;
+			}
+		}
+
+	}
+	
+	public Node<T> search(T value){
+		return search(value, root);
+	}
+	
+	private Node<T> search(T value, Node<T> swapNode){
+		if(root == null || root.getValue() == value){
+			return root;
+		}else if(value.compareTo(swapNode.getValue()) < 0){
+			return search(value, swapNode.left);
+		}else{
+			return search(value, swapNode.right);
+		}
+	}
+	
+	public Node<T> remove(T value){
+		return remove(value, root);
+	}
+	
+	private Node<T> remove(T value, Node<T> node){
+		
+		if(node == null){
+			return node;
+		}else if(value.compareTo(node.getValue()) == 0){
+			Node<T> swap = node;
+			
+			if(node.left != null && node.right != null){
+				node = swap.right;
+				this.add(swap.right);
+			}else if(node.left != null){
+				node = node.left;
+			}else if(node.right != null){
+				node = node.right;
+			}else{
+				node = null;
+			}
+			
+			return swap;
+		}else{
+			Node<T> swapNode = node;
+			Node<T> prevNode = null;
+			boolean side = true;
+			
+			while(true){
+				System.out.println(swapNode.getValue());
+				if(value.compareTo(swapNode.getValue()) > 0){
+					if(swapNode.right != null){
+						prevNode = swapNode;
+						swapNode = swapNode.right;
+						side = true;
+					}else{
+						throw new NoSuchElementException();
+					}
+				}else if(value.compareTo(swapNode.getValue()) < 0){
+					if(swapNode.left != null){
+						prevNode = swapNode;
+						swapNode = swapNode.left;
+						side = false;
+					}else{
+						throw new NoSuchElementException();
+					}
+				}else{
+					if(swapNode.left != null && swapNode.right != null){
+						rebalance(prevNode, swapNode, side);
+						
+						break;
+					}else if(swapNode.left != null){
+						if(side){
+							prevNode.right = swapNode.left;
+						}else{
+							prevNode.left = swapNode.left;
+						}
+						
+						break;
+					}else if(swapNode.right != null){
+						if(side){
+							prevNode.right = swapNode.left;
+						}else{
+							prevNode.left = swapNode.left;
+						}
+						
+						break;
+					}else{
+						if(side){
+							prevNode.right = null;
+						}else{
+							prevNode.left = null;
+						}
+						
+						break;
+					}
+				}
+			}
+			
+			return swapNode;
+		}
+	}
+	
+	private void rebalance(Node<T> prevNode, Node<T> curr, boolean side){
+
+		if(side){
+			prevNode.right = curr.right;
+		}else{
+			prevNode.left = curr.right;
+		}
+		
+		this.add(curr.left);
+	}
+	
+}

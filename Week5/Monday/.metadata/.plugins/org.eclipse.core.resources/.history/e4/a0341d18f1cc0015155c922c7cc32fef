@@ -1,0 +1,11 @@
+package Shop;
+
+import java.util.*;
+
+public class ShopInventory {
+	ArrayList<Product> products = null;
+	
+	public ShopInventory(ArrayList<Product> products){
+		this.products = products.clone();
+	}
+}

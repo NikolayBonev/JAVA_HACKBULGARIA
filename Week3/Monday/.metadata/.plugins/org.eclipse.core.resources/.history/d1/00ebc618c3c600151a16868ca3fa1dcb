@@ -1,0 +1,19 @@
+package exercises;
+
+public class Factorial {
+	
+	public static <T extends Number> Long factorial(T num){
+		
+		Long result = 1L;
+		
+		if(num.intValue() == 0 || num.intValue() == 1){
+			return 1L;
+		}
+		
+		for(int i = 1; i <= num.intValue() ; i++ ){
+			result *= i;
+		}
+		
+		return result;
+	}
+}

@@ -1,0 +1,56 @@
+
+public class BinarySearchTree<T extends Comparable<T>> {
+	
+	class Node<T>{
+		private T value;
+		private Node<T> left;
+		private Node<T> right;
+		
+		public Node(T value){
+			this.value = value;
+			this.left = null;
+			this.right = null;
+		}
+		
+		public Node(Node<T> node){
+			this.value = node.getValue();
+			this.left = node.left;
+			this.right = node.right;
+		}
+
+		public T getValue() {
+			return value;
+		}
+
+		public void setValue(T value) {
+			this.value = value;
+		}
+	}
+	
+	private Node<T> root = null;
+	
+	public BinarySearchTree(){
+	}
+	
+	public BinarySearchTree(T value){
+		root = new Node<T>(value);
+	}
+	
+	public BinarySearchTree(BinarySearchTree<T>.Node<T> node){
+		root = new Node<T>(node);
+	}
+	
+	public void add(T value){
+		add(value, root);
+	}
+	
+	public void add(T value, Node<T> swapNode){
+		if(root == null){
+			root = new Node<T>(value);
+		}else if(value.compareTo(swapNode.getValue()) < 0){
+			add(value, swapNode.left);
+		}else if(value.compareTo(swapNode.getValue()) > 0){
+			add(value, swapNode.right);
+		}
+	}
+}

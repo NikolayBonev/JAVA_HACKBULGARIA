@@ -1,0 +1,58 @@
+package Statistics;
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class StatisticsImp implements Statistics{
+	private BigInteger countElements = BigInteger.ZERO;
+	private TreeSet<Integer> elements = new TreeSet<Integer>();
+	private Map<Integer, Integer> count = new HashMap<Integer, Integer>();
+	
+	public void add(int element){
+		countElements.add(new BigInteger("1"));
+		elements.add(element);
+		
+		Integer swapCount = count.get(element);
+		
+		if(swapCount == 0 || swapCount == null){
+			count.put(element, 1);
+		}else{
+			count.put(element, swapCount++);
+		}
+	}
+	
+	@Override
+	public double getMean() {
+		BigDecimal result = BigDecimal.ZERO;
+		
+		for(int i : elements){
+			Integer elementCount = count.get(i);
+			
+			result.add(new BigDecimal(i*elementCount));
+		}
+		
+		return result.doubleValue()/2.0;
+	}
+
+	@Override
+	public double getMedian() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getMode() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getRange() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

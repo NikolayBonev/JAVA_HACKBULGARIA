@@ -1,0 +1,9 @@
+package ToDoListTasks;
+
+public class Task {
+	enum{
+		MIN; 
+		AVERAGE; 
+		MAX
+	}
+}

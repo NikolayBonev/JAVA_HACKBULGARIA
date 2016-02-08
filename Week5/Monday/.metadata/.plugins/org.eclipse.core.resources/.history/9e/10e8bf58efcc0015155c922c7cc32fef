@@ -1,0 +1,11 @@
+package Shop;
+
+public class Product {
+	private String countryId;
+	private double price;
+	private String name;
+	private int productId;
+	private int quantity;
+	
+	
+}

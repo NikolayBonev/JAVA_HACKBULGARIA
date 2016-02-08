@@ -1,0 +1,5 @@
+package vatTaxCalculator;
+
+class NotSupportedCountryException extends Exception {
+
+}

@@ -1,0 +1,11 @@
+import java.util.Collection;
+
+public class RotateCollection {
+	
+	public static <T> void rotate(Collection<T> collection, int step){
+		
+		for(int i = 0 ; i < Math.abs(step) ; i++){
+			ReverseCollection.reverse(collection);
+		}
+	}
+}

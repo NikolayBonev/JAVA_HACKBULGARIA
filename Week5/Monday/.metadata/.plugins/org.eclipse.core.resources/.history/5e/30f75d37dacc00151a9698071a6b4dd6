@@ -1,0 +1,38 @@
+package vatTaxCalculator;
+
+public class Country {
+	private String name;
+	private String IdCountry;
+	private double vatTax;
+	
+	public Country(String name, String idCountry, double vatTax) {
+		setName(name);
+		setIdCountry(idCountry);
+		
+		if(vatTax > 1 || vatTax < 0){
+			throw new IllegalArgumentException("VatTax has to be between 0 and 1!");
+		}
+		
+		setVatTax(vatTax);
+	}
+	public String getName() {
+		return this.name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIdCountry() {
+		return this.IdCountry;
+	}
+	public void setIdCountry(String idCountry) {
+		this.IdCountry = idCountry;
+	}
+	public double getVatTax() {
+		return this.vatTax;
+	}
+	public void setVatTax(double vatTax) {
+		this.vatTax = vatTax;
+	}
+	
+	
+}

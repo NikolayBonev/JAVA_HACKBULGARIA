@@ -2,61 +2,43 @@ package exercises;
 
 public class MathFunctions{
 	
-	public static <T extends Number, E extends Number> Number multiplication(T num1, E num2){
-		if(num1 instanceof Double || num2 instanceof Double){
-			return num1.doubleValue() * num2.doubleValue();
-		}else if(num1 instanceof Float || num2 instanceof Float){
-			return num1.floatValue() * num2.floatValue();
-		}else if(num1 instanceof Long || num2 instanceof Long){
-			return num1.longValue() * num2.longValue();
-		}else{
-			return num1.intValue() * num2.intValue();
-		}
+	public static <T extends Number, E extends Number> double multiplication(T num1, E num2){
+		return num1.doubleValue() * num2.doubleValue();
 	}
 	
-	public static <T extends Number, E extends Number> Number power(T num1, E num2){
-		Number result = num1;
+	public static <T extends Number, E extends Number> double power(T num1, E num2){
+		double result = num1.doubleValue();
 		
 		for(int i = 1 ; i < num2.intValue(); i++){
 			result = multiplication(result, num1);
 		}
 		
-		return result;o
+		return result;
 	}
 	
-	public static <T extends Number, E extends Number> Number division(T num1, E num2){
-		if(num1 instanceof Double || num2 instanceof Double){
-			return num1.doubleValue() / num2.doubleValue();
-		}else if(num1 instanceof Float || num2 instanceof Float){
-			return num1.floatValue() / num2.floatValue();
-		}else if(num1 instanceof Long || num2 instanceof Long){
-			return num1.longValue() / num2.longValue();
-		}else{
-			return num1.intValue() / num2.intValue();
-		}
+	public static <T extends Number, E extends Number> double division(T num1, E num2){
+		return num1.doubleValue() / num2.doubleValue();
 	}
 	
-	public static <K extends Number, E extends Number> Number subtraction(K num1, E num2){
-		if(num1 instanceof Double || num2 instanceof Double){
-			return num1.doubleValue() - num2.doubleValue();
-		}else if(num1 instanceof Float || num2 instanceof Float){
-			return num1.floatValue() - num2.floatValue();
-		}else if(num1 instanceof Long || num2 instanceof Long){
-			return num1.longValue() - num2.longValue();
-		}else{
-			return num1.intValue() - num2.intValue();
-		}
+	public static <K extends Number, E extends Number> double subtraction(K num1, E num2){
+		return num1.doubleValue() - num2.doubleValue();
 	}
 	
-	public static <K extends Number, E extends Number> Number sum(K num1, E num2){
-		if(num1 instanceof Double || num2 instanceof Double){
-			return num1.doubleValue() + num2.doubleValue();
-		}else if(num1 instanceof Float || num2 instanceof Float){
-			return num1.floatValue() + num2.floatValue();
-		}else if(num1 instanceof Long || num2 instanceof Long){
-			return num1.longValue() + num2.longValue();
-		}else{
-			return num1.intValue() + num2.intValue();
+	public static <K extends Number, E extends Number> double sum(K num1, E num2){
+		return num1.doubleValue() + num2.doubleValue();
+	}
+	
+	public static <T extends Number> Long factorial(T num){
+		Long result = 1L;
+		
+		if(num.intValue() == 0 || num.intValue() == 1){
+			return 1L;
 		}
+		
+		for(int i = 1; i <= num.intValue() ; i++ ){
+			result *= i;
+		}
+		
+		return result;
 	}
 }

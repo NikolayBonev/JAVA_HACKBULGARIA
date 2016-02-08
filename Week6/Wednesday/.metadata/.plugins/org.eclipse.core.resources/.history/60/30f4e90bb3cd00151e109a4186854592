@@ -1,0 +1,140 @@
+
+public class BinarySearchTree<T extends Comparable<T>> {
+	
+	class Node<T>{
+		private T value;
+		private Node<T> left;
+		private Node<T> right;
+		
+		public Node(T value){
+			this.value = value;
+			this.left = null;
+			this.right = null;
+		}
+		
+		public Node(Node<T> node){
+			this.value = node.getValue();
+			this.left = node.left;
+			this.right = node.right;
+		}
+
+		public T getValue() {
+			return value;
+		}
+
+		public void setValue(T value) {
+			this.value = value;
+		}
+	}
+	
+	private Node<T> root = null;
+	
+	public BinarySearchTree(){
+	}
+	
+	public BinarySearchTree(T value){
+		root = new Node<T>(value);
+	}
+	
+	public BinarySearchTree(Node<T> node){
+		root = new Node<T>(node);
+	}
+	
+	public void add(T value){
+		add(value, root);
+	}
+	
+	private void add(T value, Node<T> swapNode){
+		if(root == null){
+			root = new Node<T>(value);
+		}else if(value.compareTo(swapNode.getValue()) < 0){
+			add(value, swapNode.left);
+		}else if(value.compareTo(swapNode.getValue()) > 0){
+			add(value, swapNode.right);
+		}
+	}
+	
+	public Node<T> search(T value){
+		return search(value, root);
+	}
+	
+	private Node<T> search(T value, Node<T> swapNode){
+		if(root == null || root.getValue() == value){
+			return root;
+		}else if(value.compareTo(swapNode.getValue()) < 0){
+			return search(value, swapNode.left);
+		}else{
+			return search(value, swapNode.right);
+		}
+	}
+	
+	public Node<T> remove(T value){
+		return remove(value, root);
+	}
+	
+	private Node<T> remove(T value, Node<T> node){
+		
+		if(node == null){
+			return node;
+		}else if(value.compareTo(node.getValue()) == 0){
+			Node<T> swap = node;
+			node = null;
+			
+			return swap;
+		}else{
+			Node<T> swapNode = node;
+			Node<T> prevNode = null;
+			boolean side = true;
+			
+			while(true){
+				if(value.compareTo(swapNode.getValue()) > 0){
+					if(swapNode.right != null){
+						prevNode = swapNode;
+						swapNode = swapNode.right;
+						side = true;
+					}else{
+						
+					}
+				}else if(value.compareTo(swapNode.getValue()) < 0){
+					if(swapNode.left != null){
+						prevNode = swapNode;
+						swapNode = swapNode.left;
+						side = false;
+					}else{
+						
+					}
+				}else{
+					if(swapNode.left != null && swapNode.right != null){
+						
+					}else if(swapNode.left != null){
+						if(side){
+							prevNode.right = swapNode.left;
+						}else{
+							prevNode.left = swapNode.left;
+						}
+						
+						break;
+					}else if(swapNode.right != null){
+						if(side){
+							prevNode.right = swapNode.left;
+						}else{
+							prevNode.left = swapNode.left;
+						}
+						
+						break;
+					}else{
+						if(side){
+							prevNode.right = null;
+						}else{
+							prevNode.left = null;
+						}
+						
+						break;
+					}
+				}
+			}
+			
+			return swapNode;
+		}
+	}
+}

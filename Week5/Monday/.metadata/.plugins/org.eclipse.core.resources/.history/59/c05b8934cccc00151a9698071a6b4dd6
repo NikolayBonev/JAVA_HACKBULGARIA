@@ -1,0 +1,93 @@
+
+public class Vector {
+	private double[] coordinates;
+
+	public Vector(double... coordinates) {
+		this.coordinates = new double[coordinates.length];
+		
+		for(int i = 0; i < coordinates.length ; i++){
+			this.coordinates[i] = coordinates[i];
+		}
+	}
+	
+	public Vector(Vector vector){
+		this(vector.coordinates);
+	}
+	
+	public double getCoordinate(int n){
+		if(n >=0 && n < this.coordinates.length){
+			return this.coordinates[n];
+		}
+		
+		return -1;
+	}
+	
+	public boolean setCoordinate(int n , double coordinate){
+		if(n >=0 && n < this.coordinates.length){
+			this.coordinates[n] = coordinate;
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public int getDimentions(){
+		return this.coordinates.length;
+	}
+	
+	public double getLength(){
+		double result = 0;
+		
+		for(int i = 0 ; i < this.coordinates.length ; i++){
+			result += Math.pow(this.coordinates[i], 2);
+		}
+		
+		return Math.sqrt(result);
+	}
+	
+	@Override
+	public String toString(){
+		StringBuilder strBilder = new StringBuilder("Coordinates of vector: ");
+		
+		for(int i = 0 ; i < this.coordinates.length ; i++){
+			strBilder.append(this.coordinates[i]);
+			if(i < this.coordinates.length -2){
+				strBilder.append("; ");
+			}
+		}
+		
+		return strBilder.toString();
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		
+		if(obj != null && obj instanceof Vector){
+			Vector vector = (Vector) obj;
+			
+			if(this.getDimentions() != vector.getDimentions()){
+				return false;
+			}
+			
+			for(int i = 0 ; i < this.coordinates.length ; i++){
+				if(this.coordinates[i] != vector.coordinates[i]){
+					return false;
+				}
+			}
+			
+			return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 17;
+		hash = (int) (hash*15 + this.coordinates[0]);
+		
+		return hash;
+	}
+	
+	
+}

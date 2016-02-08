@@ -1,0 +1,10 @@
+
+public class RegexStrings {
+	final public static String PERSONNAME = "\\w+";
+	final public static String BULGARIAPHONENUMBER = "08[7-9][0-9]{7}";
+	final public static String PERSONAGE = "[0-1][0-9][1-9]";
+	final public static String CREDITCARDNUMBER = "";
+	final public static String IPVERSION4VALIDATOR = "^(([1-9]?\\d|1\\d\\d|2[0-5][0-5]|2[0-4]\\d)\\.){3}([1-9]?\\d|1\\d\\d|2[0-5][0-5]|2[0-4]\\d)$";
+	final public static String personName = "\\w+";
+	final public static String personName = "\\w+";
+}

@@ -1,0 +1,43 @@
+package Shop;
+
+import java.util.*;
+
+public class ShopInventory {
+	private Map<Integer,Product> products = null;
+	
+	public ShopInventory(ArrayList<Product> products){
+		this.products = new HashMap<>();
+		
+		for(Product product : products){
+			this.products.put(product.getProductId(), product);
+		}
+	}
+	
+	public double audit(){
+		double sum = 0;
+		
+		if(products.size() == 0){
+			return sum;
+		}
+		
+		for(Map.Entry<Integer, Product> product : products.entrySet()){
+			sum += product.getValue().getPrice();
+		}
+		
+		return sum;
+	}
+	
+	public double requestOrder(Order order) throws NotAvailableInInventoryException{
+		double sum = 0;
+		
+		for(Map.Entry<Integer, Integer> entry : order.getOrder().entrySet()){
+			if(!products.containsKey(entry.getKey())){
+				throw new NotAvailableInInventoryException("There is no such product!");
+			}
+			
+			sum += entry.getValue().doubleValue() + entry.getKey();
+		}
+		
+		return sum;
+	}
+}

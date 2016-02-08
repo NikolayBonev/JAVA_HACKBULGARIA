@@ -1,0 +1,18 @@
+package vatTaxCalculator;
+
+class NotSupportedCountryException extends Exception {
+	private static final long serialVersionUID = 1L;
+	String message = "No such country!";
+	
+	public NotSupportedCountryException(String message){
+		this.message = message;
+	}
+	
+	@Override
+	public String getMessage() {
+		return message;
+	}
+	
+	
+
+}

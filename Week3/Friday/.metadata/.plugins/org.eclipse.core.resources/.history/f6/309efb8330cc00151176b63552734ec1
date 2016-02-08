@@ -1,0 +1,13 @@
+package ToDoListTasks;
+
+public class Task {
+	
+	
+	
+}
+
+enum Priority{
+	MIN,
+	AVERAGE,
+	MAX;
+}
