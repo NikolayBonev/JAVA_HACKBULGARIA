@@ -1,0 +1,70 @@
+import java.io.*;
+import java.util.*;
+
+public class Bank {
+	Map<String, BankAccount> acc = null;
+	
+	public Bank() {
+		acc = new HashMap<>();
+	}
+
+	public BankAccount getAccount(String id) throws NonExistingBankAccountException{
+		if(!acc.containsKey(id)){
+			throw new NonExistingBankAccountException();
+		}
+		
+		return acc.get(id);
+	}
+	
+	public void setAccount(BankAccount account){
+		acc.put(account.getId(), account);
+	}
+	
+	public void transfer(String usrId, String destId, double sum) throws InsufficientFundsException{
+		acc.get(usrId).withdraw(sum);
+		acc.get(destId).add(sum);
+	}
+	
+	public static void saveAccount(BankAccount account) throws IOException {
+        File dir = new File("info/");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        
+        ObjectOutputStream objOut = null;
+
+        try {
+            objOut = new ObjectOutputStream(new FileOutputStream("info/" + account.getId() + ".ser"));
+            objOut.writeObject(account);
+        } finally {
+            if (objOut != null) {
+                objOut.close();
+            }
+        }
+    }
+	
+	static Bank loadAccounts(Bank bank) throws IOException {
+        File dir = new File("data/");
+        if (!dir.exists()) {
+            return bank;
+        }
+
+        String[] accountPaths = dir.list();
+        ObjectInputStream objIn = null;
+        
+        try {
+            for (String accountPath : accountPaths) {
+                objIn = new ObjectInputStream(new BufferedInputStream(new FileInputStream("data/" + accountPath)));
+                BankAccount account = (BankAccount) objIn.readObject();
+                bank.setAccount(account);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+			if(objIn != null){
+				objIn.close();
+			}
+		}
+        return bank;
+    }
+}

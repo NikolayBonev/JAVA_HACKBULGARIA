@@ -1,0 +1,21 @@
+package ParallelMinimalPointCalculations;
+
+import java.util.*;
+
+public class Calculator {
+	public static List<Point> generatePoints(){
+		List<Point> points = new ArrayList<>();
+		Random rand = new Random();
+		
+		for(int i = 0 ; i < 100_000 ; i++){
+			points.add(new Point(rand.nextInt(10_000), rand.nextInt(10_000)));
+		}
+		
+		return points;
+	}
+	
+	public static Map<Point,Point> getNearestPoints(List<Point> generatedPoints){
+		return null;
+		
+	}
+}

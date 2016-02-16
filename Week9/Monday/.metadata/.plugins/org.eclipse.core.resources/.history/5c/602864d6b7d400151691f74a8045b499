@@ -1,0 +1,47 @@
+package ParallelMinimalPointCalculations;
+
+import java.util.*;
+
+public class Point {
+	private double x;
+	private double y;
+	
+	public Point(double x, double y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	public double getDistance(Point point){
+		double distance = 0;
+		distance += Math.pow(Math.abs(this.x - point.getX()), 2);
+		distance += Math.pow(Math.abs(this.y - point.getY()), 2);
+		
+		return Math.sqrt(distance);
+	}
+	
+	public static List<Point> generatePoints(){
+		List<Point> points = new ArrayList<>();
+		Random rand = new Random();
+		
+		for(int i = 0 ; i < 100_000 ; i++){
+			points.add(new Point(rand.nextInt(10_000), rand.nextInt(10_000)));
+		}
+		
+		return points;
+	}
+	
+	public static Map<Point,Point> getNearestPoints(List<Point> generatedPoints){
+		return null;
+		
+	}
+	
+	public double getX() {
+		return this.x;
+	}
+
+	public double getY() {
+		return this.y;
+	}
+	
+	
+}

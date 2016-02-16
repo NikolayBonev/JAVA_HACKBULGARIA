@@ -1,0 +1,65 @@
+package ParallelMinimalPointCalculations;
+
+import java.util.*;
+
+public class Calculator {
+	private static final int THREAD_NEARLESTPOINTS_DIVIDER = 50_000;
+	
+	public static List<Point> generatePoints(){
+		List<Point> points = new ArrayList<>();
+		Random rand = new Random();
+		
+		for(int i = 0 ; i < 100_000 ; i++){
+			points.add(new Point(rand.nextInt(10_000), rand.nextInt(10_000)));
+		}
+		
+		return points;
+	}
+	
+	public static Map<Point,Point> getNearestPoints(List<Point> generatedPoints){
+		Map<Point, Point> result = new HashMap<>();
+		
+//		doCalculations(generatedPoints, 0, generatedPoints.size()-1, result);
+		
+		int divider = Math.round(generatedPoints.size()/THREAD_NEARLESTPOINTS_DIVIDER);
+		
+		if(divider == 0 && generatedPoints.size() > 0){
+			divider = 1;
+		}
+		
+		for(int i = 1 ; i < divider ; i++){
+			System.out.println((generatedPoints.size()*i/divider)+1);
+			System.out.println(generatedPoints.size()*(i+1)/divider);
+			new CalculatorThread(result, generatedPoints, (generatedPoints.size()*i/divider)+1, generatedPoints.size()*(i+1)/divider).run();
+		}
+//		new CalculatorThread(result, generatedPoints, 0, generatedPoints.size()/2).run();
+//		new CalculatorThread(result, generatedPoints, generatedPoints.size()/2 + 1, generatedPoints.size()-1).run();
+		
+		return result;
+		
+	}
+	
+	static void doCalculations(List<Point> inPoints, int indexFrom, int indexTo, Map<Point, Point> outMap){
+		double minDistance = 0;
+		double currDistance;
+		Point closest = null;
+		
+		for(int i = indexFrom ; i <= indexTo ; i++){
+			minDistance = Double.MAX_VALUE;
+			for(int j = indexFrom + 1; j <= indexTo ; j++){
+				if(inPoints.get(j).equals(inPoints.get(i))){
+					continue;
+				}
+				
+				currDistance = inPoints.get(j).getDistance(inPoints.get(i));
+				
+				if(currDistance < minDistance){
+					minDistance = currDistance;
+					closest = inPoints.get(j);
+				}
+			}
+			
+			outMap.put(inPoints.get(i), closest);
+		}
+	}
+}

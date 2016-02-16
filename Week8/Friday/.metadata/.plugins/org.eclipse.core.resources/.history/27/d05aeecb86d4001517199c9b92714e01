@@ -1,0 +1,14 @@
+
+public class SumThread implements Runnable {
+
+	int number1 = 0;
+	int number2 = 0;
+	
+	
+	@Override
+	public void run() {
+		System.out.println(String.format("The sum of %d and %d is %d", a, b, a+b));
+
+	}
+
+}

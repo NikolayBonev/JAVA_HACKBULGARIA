@@ -1,0 +1,24 @@
+import java.io.File;
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String ans = null;
+		try {
+			ans = FileUtils.readFrom(new File("haha.txt"));
+			System.out.println(ans);
+			
+			FileUtils.writeTo(new File("haha.txt"), "Ivan 345");
+			System.out.println();
+			ans = FileUtils.readFrom(new File("haha.txt"));
+			System.out.println(ans);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println(ans);
+	}
+
+}

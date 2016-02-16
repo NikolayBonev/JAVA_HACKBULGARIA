@@ -1,0 +1,17 @@
+package ParallelMinimalPointCalculations;
+
+import java.util.List;
+import java.util.Map;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Calculator calc = new Calculator();
+		
+		List<Point> points = calc.generatePoints();
+		
+		Map<Point, Point> closestCatalog = calc.getNearestPoints(points);
+
+	}
+
+}

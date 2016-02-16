@@ -1,0 +1,11 @@
+
+public class TeskBQ {
+
+	public static void main(String[] args) {
+		BlockingQueue<Integer> queue = new BlockingQueue<>(10);
+		
+		
+
+	}
+
+}

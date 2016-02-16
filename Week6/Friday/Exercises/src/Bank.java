@@ -1,5 +1,5 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 public class Bank {
 	Map<String, BankAccount> acc = null;
@@ -24,4 +24,50 @@ public class Bank {
 		acc.get(usrId).withdraw(sum);
 		acc.get(destId).add(sum);
 	}
+	
+	public static void saveAccount(BankAccount account) throws IOException {
+        File dir = new File("info/");
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        
+        ObjectOutputStream obj = null;
+
+        try {
+            obj = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("info/" + account.getId() + ".ser")));
+            obj.writeObject(account);
+        } finally {
+            if (obj != null) {
+                obj.close();
+            }
+        }
+    }
+	
+	public static Bank loadAccounts(Bank bank) throws IOException {
+        File dir = new File("info/");
+        
+        if (!dir.exists()) {
+            return bank;
+        }
+
+        String[] paths = dir.list();
+        ObjectInputStream obj = null;
+        
+        try {
+            for (String path : paths) {
+            	System.out.println(path);
+                obj = new ObjectInputStream(new BufferedInputStream(new FileInputStream("info/" + path)));
+                BankAccount account = (BankAccount) obj.readObject();
+                bank.setAccount(account);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+			if(obj != null){
+				obj.close();
+			}
+		}
+        
+        return bank;
+    }
 }

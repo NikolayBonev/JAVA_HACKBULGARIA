@@ -1,0 +1,11 @@
+package ParallelMinimalPointCalculations;
+
+public class CalculatorThread implements Runnable {
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

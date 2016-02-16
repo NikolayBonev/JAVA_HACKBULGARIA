@@ -1,13 +1,17 @@
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
 public class CLI {
 	private Bank bank = new Bank();
 	Scanner sc = new Scanner(System.in);
-	
+
 	public void menu(){	
+		try {
+			this.bank = Bank.loadAccounts(bank);
+		} catch (IOException e) {
+			System.err.println("Database can't be reached!");
+		}
+		
 		do{
 			System.out.println("Menu:\n1.Create account\n2.Show history\n3.Add money\n4.Withdraw money\n5.Transfer money\n6.Calculate amount");
 			System.out.print("Choose option:");
@@ -67,7 +71,13 @@ public class CLI {
 				
 		BankAccount account = new BankAccount(firstName, lastName, age, balance, interest, Boolean.getBoolean(typeInterest));
 		System.out.println(account.getId());
+		
 		bank.setAccount(account);
+		try {
+			Bank.saveAccount(account);
+		} catch (IOException e) {
+			System.err.println("Can't create account!");
+		}
 		
 		System.out.println("Account is created!");
 	}
@@ -91,10 +101,14 @@ public class CLI {
 		double sum = sc.nextDouble();
 		
 		try {
-			bank.getAccount(id).add(sum);
+			BankAccount account = bank.getAccount(id);
+			account.add(sum);
+			Bank.saveAccount(account);
 		} catch (NonExistingBankAccountException e) {
 			System.out.println("There is account with this number!");
-		}
+		} catch (IOException e) {
+			System.err.println("Can't add money! Can't connect to database!");
+		} 
 	}
 	
 	private void withdraw(){
@@ -105,17 +119,22 @@ public class CLI {
 		double sum = sc.nextDouble();
 		
 		try {
-			bank.getAccount(id).withdraw(sum);
+			BankAccount account = bank.getAccount(id);
+			account.withdraw(sum);
+			Bank.saveAccount(account);
+			
 		} catch (InsufficientFundsException e) {
 			System.out.println("No money!");
 		} catch (NonExistingBankAccountException e) {
 			System.out.println("There is account with this number!");
+		} catch (IOException e) {
+			System.err.println("Can't withdraw money! Can't connect to database!");
 		}
 	}
 	
 	private void transfer(){
 		System.out.print("Enter account id usr: ");
-		String idUsr = sc.next();
+		String idSrc = sc.next();
 		
 		System.out.print("Enter account id dest: ");
 		String idDest = sc.next();
@@ -124,9 +143,19 @@ public class CLI {
 		double sum = sc.nextDouble();
 		
 		try {
-			bank.transfer(idUsr, idDest, sum);
+			bank.transfer(idSrc, idDest, sum);
+			
+			BankAccount accountSrc = bank.getAccount(idSrc);
+			Bank.saveAccount(accountSrc);
+			
+			BankAccount accountDest = bank.getAccount(idDest);
+			Bank.saveAccount(accountDest);
 		} catch (InsufficientFundsException e) {
 			System.out.println("No money!");
+		} catch (NonExistingBankAccountException e) {
+			System.out.println("There is account with this number!");
+		} catch (IOException e) {
+			System.err.println("Can't transfer money!");
 		}
 	}
 	

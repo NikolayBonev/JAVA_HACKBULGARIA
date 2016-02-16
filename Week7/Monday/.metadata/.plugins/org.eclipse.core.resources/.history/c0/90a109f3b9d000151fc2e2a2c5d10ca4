@@ -1,0 +1,18 @@
+import java.io.File;
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String ans;
+		try {
+			ans = FileUtils.readFrom(new File(""));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println(ans);
+	}
+
+}

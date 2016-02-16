@@ -1,0 +1,242 @@
+import java.io.*;
+import java.nio.charset.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class FileUtils {
+	private static FileUtils utils = null;	
+	
+	private FileUtils() {
+	}
+
+	public static FileUtils getInstance(){
+		if(utils == null){
+			utils = new FileUtils();
+		}
+		
+		return utils;
+	}
+	
+	public static String readFrom(File file) throws IOException{
+		return readFrom(file.toPath());
+	}
+	
+	public static String readFrom(Path path) throws IOException{
+		StringBuilder builder = new StringBuilder();
+		
+		BufferedReader reader = null;
+		
+		try{
+			reader = Files.newBufferedReader(path, Charset.defaultCharset());
+			
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				builder.append(line);
+				builder.append("\n");
+			}
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+	
+		return builder.toString();
+	}
+	
+	public static void writeTo(File file, String text) throws IOException{
+		writeTo(file.toPath(), text);
+	}
+	
+	public static void writeTo(Path path, String text) throws IOException{
+		BufferedWriter writer = null;
+		
+		try {
+			writer = Files.newBufferedWriter(path, Charset.defaultCharset());
+			writer.write(text);
+		} finally {
+			if(writer != null){
+				writer.close();
+			}
+		}
+	}
+	
+	public static Map<String, String> parseProperties(File file) throws IOException{
+		List<String> properties = new ArrayList<>();
+		
+		BufferedReader reader = null;
+		
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				
+				if(line == null || line.length() == 0 || line.startsWith("#")){
+					continue;
+				}
+					
+				properties.add(line.replace("\\s+", ""));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+		
+		return extractProperty(properties);
+	}
+	
+	private static Map<String, String> extractProperty(List<String> properties){
+		Map<String, String> result = new HashMap<>();
+		
+		String[] property = null;
+		
+		for(String line : properties){
+			if(line.charAt(2) != '='){
+				continue;
+			}
+			
+			property = line.split("=", 2);
+			result.put(property[0], property[1]);
+		}
+		
+		return result;
+	}
+	
+	public static WordCountResult wordCount(File file) throws IOException{
+		int lines = 0;
+		int words = 0;
+		int chars = 0;
+		
+		BufferedReader reader = null;
+		Pattern pattern = Pattern.compile("\\w+");
+		Matcher m = null;
+		
+		try{
+			reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				m = pattern.matcher(line);
+				
+				while(m.find()){
+					words++;
+				}
+				
+				lines++;
+				chars += line.length();
+			}
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+		
+		
+		return new WordCountResult(words, lines, chars);
+	}
+	
+	public static WordCountResult wordCount(Path path) throws IOException{
+		return wordCount(path.toFile());
+	}
+	
+	public static void fixEncoding(Path path) throws IOException{
+		String backup = "(backup)" + path.getFileName();
+		String fixed = "(fixed)" + path.getFileName();
+		
+		if(path.getParent() != null){
+			backup = path.getParent() + "/" + backup;
+			fixed = path.getParent() + "/" + fixed;
+		}
+		
+		Files.deleteIfExists(Paths.get(backup));
+		Files.copy(path, Paths.get(backup));
+
+		BufferedReader reader = Files.newBufferedReader(path, Charset.forName("Windows-1251"));
+		BufferedWriter writer = Files.newBufferedWriter(Paths.get(fixed), Charset.forName("UTF-8"));
+
+		String line = null;
+		
+		while(reader.ready()){
+			line = reader.readLine();
+			
+			writer.write(line);
+			writer.newLine();
+		}
+		
+		reader.close();
+		writer.close();
+	}
+	
+	public static String reducePath(String path){
+		return Paths.get(path).normalize().toString();
+	}
+	
+	public static void compress(Path filePath) throws IOException{
+		Map<String , Integer> wordTable = new HashMap<>();
+		
+		BufferedReader reader = null;
+		BufferedWriter writer = null;
+		try {
+			reader = Files.newBufferedReader(filePath);
+			
+			StringBuilder builder = new StringBuilder();
+			
+			while(reader.ready()){
+				builder.append(reader.readLine());
+				builder.append("\n");
+			}
+			
+			String[] words = builder.toString().replace("\\W+\\S+", "").split(" ");
+			
+			int index = 0;
+			
+			for(String word : words){
+				if(!wordTable.containsKey(word)){
+					wordTable.put(word, index++);
+				}
+			}
+			
+			String pathNoExt = filePath.toString().replaceFirst("\\.[^.]+$", "");
+			
+			builder = new StringBuilder();
+			
+			for(String word : words){
+				builder.append(String.format("~%d", wordTable.get(word)));
+			}
+			
+			writer = Files.newBufferedWriter(Paths.get(pathNoExt + ".comp"), StandardOpenOption.CREATE);
+			writer.write(builder.toString());
+			
+			writer.close();
+			
+			ObjectOutputStream wordTableFile = new ObjectOutputStream(new FileOutputStream(pathNoExt + ".wt"));
+			
+			wordTableFile.writeObject(wordTable);
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+			
+			if(writer != null){
+				writer.close();
+			}
+		}		
+	}
+	
+	public static void decompress(Path filePath){
+		
+	}
+}

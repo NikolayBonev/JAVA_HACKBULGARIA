@@ -1,0 +1,30 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+/*
+ *		 Task 1 : Make a class that extends Thread
+ */
+		
+//		SimpleThread thread1 = new SimpleThread();
+//		thread1.start();
+
+/*
+ * 		Task 2 : Make a class that implements Runnable
+ */
+	
+//		SimpleRunnable thread2 = new SimpleRunnable();
+//		thread2.run();
+
+/*
+ * 		Task 3 : Modify SimpleThread or SimpleRunnable to print message from main		
+ */
+		
+//		SimpleRunnable thread3 = new SimpleRunnable("Hello! I'm thread 3.");
+//		thread3.run();
+		
+		
+	}
+
+}

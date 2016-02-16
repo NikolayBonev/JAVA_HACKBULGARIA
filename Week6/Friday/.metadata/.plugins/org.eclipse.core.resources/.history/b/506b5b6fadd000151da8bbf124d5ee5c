@@ -1,0 +1,154 @@
+import java.io.IOException;
+import java.util.*;
+
+public class CLI {
+	private Bank bank = new Bank();
+	Scanner sc = new Scanner(System.in);
+
+	public void menu(){	
+		try {
+			this.bank = bank.loadAccounts(bank);
+		} catch (IOException e) {
+			System.err.println("Database can't be reached!");
+		}
+		
+		do{
+			System.out.println("Menu:\n1.Create account\n2.Show history\n3.Add money\n4.Withdraw money\n5.Transfer money\n6.Calculate amount");
+			System.out.print("Choose option:");
+			
+			int option = 0;
+			
+			while(sc.hasNextInt()){
+				option = sc.nextInt();
+				break;
+			}
+			
+			switch (option) {
+			case 1:
+				createAccount();
+				break;
+			case 2:
+				showHistory();
+				break;
+			case 3:
+				addMoney();
+				break;
+			case 4:
+				withdraw();
+				break;
+			case 5:
+				transfer();
+				break;
+			case 6:
+				calculateAmount();
+				break;
+			default:
+				break;
+			}
+		}while(true);
+	}
+	
+	private void createAccount(){
+		System.out.println("Account info:");
+		
+		System.out.print("First name: ");
+		String firstName = sc.next();
+		
+		System.out.print("Last name: ");
+		String lastName = sc.next();
+		
+		System.out.print("Age: ");
+		int age = sc.nextInt();
+		
+		System.out.print("Is the interest type simple(true/false)");
+		String typeInterest = sc.next();
+		
+		System.out.print("Start balance: ");
+		double balance = sc.nextDouble();
+		
+		System.out.print("Interest in persentage: ");
+		double interest = sc.nextDouble();
+				
+		BankAccount account = new BankAccount(firstName, lastName, age, balance, interest, Boolean.getBoolean(typeInterest));
+		System.out.println(account.getId());
+		bank.setAccount(account);
+		
+		System.out.println("Account is created!");
+	}
+	
+	private void showHistory(){
+		System.out.print("Enter account id: ");
+		String id = sc.next();
+		
+		try {
+			bank.getAccount(id).getHistory();
+		} catch (NonExistingBankAccountException e) {
+			System.out.println("There is account with this number!");
+		}
+	}
+	
+	private void addMoney(){
+		System.out.print("Enter account id: ");
+		String id = sc.next();
+		
+		System.out.print("Enter amount: ");
+		double sum = sc.nextDouble();
+		
+		try {
+			bank.getAccount(id).add(sum);
+		} catch (NonExistingBankAccountException e) {
+			System.out.println("There is account with this number!");
+		}
+	}
+	
+	private void withdraw(){
+		System.out.print("Enter account id: ");
+		String id = sc.next();
+		
+		System.out.print("Enter amount: ");
+		double sum = sc.nextDouble();
+		
+		try {
+			bank.getAccount(id).withdraw(sum);
+		} catch (InsufficientFundsException e) {
+			System.out.println("No money!");
+		} catch (NonExistingBankAccountException e) {
+			System.out.println("There is account with this number!");
+		}
+	}
+	
+	private void transfer(){
+		System.out.print("Enter account id usr: ");
+		String idUsr = sc.next();
+		
+		System.out.print("Enter account id dest: ");
+		String idDest = sc.next();
+		
+		System.out.print("Enter amount: ");
+		double sum = sc.nextDouble();
+		
+		try {
+			bank.transfer(idUsr, idDest, sum);
+		} catch (InsufficientFundsException e) {
+			System.out.println("No money!");
+		}
+	}
+	
+	private void calculateAmount(){
+		System.out.print("Enter account id: ");
+		String id = sc.next();
+		
+		System.out.print("Enter months: ");
+		String months = sc.next();
+		
+		try {
+			System.out.println("After period " + months + " the balance will be " + bank.getAccount(id).calculateAmount(Integer.parseInt(months)));
+		} catch (NumberFormatException e) {
+			System.out.println("There is account with this number!");
+			e.printStackTrace();
+		} catch (NonExistingBankAccountException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

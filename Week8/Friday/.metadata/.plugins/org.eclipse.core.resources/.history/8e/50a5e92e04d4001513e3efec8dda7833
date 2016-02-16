@@ -1,0 +1,12 @@
+
+public class Test {
+
+	public static void main(String[] args) {
+//		SimpleThread thread = new SimpleThread();
+		SimpleRunnable thread = new SimpleRunnable();
+		
+		thread.start();
+
+	}
+
+}

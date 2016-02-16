@@ -1,0 +1,29 @@
+import java.util.Random;
+
+public class Consumer implements Runnable {
+	private BlockingQueue<Integer> queue = null;
+	
+	
+	public Consumer(BlockingQueue<Integer> queue) {
+		this.queue = queue;
+	}
+
+
+	@Override
+	public void run() {
+		Random rand = new Random();
+		
+		try {
+			while(this.queue.size() > 0){
+				this.queue.poll();
+				System.out.println("haha2");
+				Thread.sleep(new Integer(rand.nextInt(3234)));
+			}
+		} catch (InterruptedException e) {
+			System.out.println("Can't consume!");
+		} finally {
+			System.out.println("Done consuming!");
+		}
+	}
+
+}

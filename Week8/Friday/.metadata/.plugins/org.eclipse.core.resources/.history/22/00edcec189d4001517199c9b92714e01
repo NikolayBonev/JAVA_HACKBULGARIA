@@ -1,0 +1,16 @@
+
+public class CounterObject {
+	private int counter = 0;
+	
+	public void increment(){
+		this.counter++;
+	}
+	
+	public void decrement(){
+		this.counter--;
+	}
+	
+	public int getInt(){
+		return this.counter;
+	}
+}

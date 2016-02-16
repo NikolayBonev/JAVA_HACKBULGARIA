@@ -1,0 +1,50 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.concurrent.locks.*;
+
+public class BlockingQueue<E> {
+	private Queue<E> queue = null;
+	private int capacity = 0;
+	
+	private Lock lock = null;
+	
+	public BlockingQueue(int capacity) {
+		if(capacity > 0){
+			this.capacity = capacity;
+		}
+		
+		this.lock = new ReentrantLock();
+		this.queue = new LinkedList<E>();
+	}
+	
+	public void add(E element){
+		offer(element);
+	}
+	
+	public void offer(E element) throws InterruptedException{
+		lock.lock();
+		
+		while(queue.size() == 0){
+			lock.wait();
+		}
+		if(queue.size() < capacity ){
+			queue.add(element);
+		}
+	}
+	
+	public E poll(){
+		if(queue.size() > 0){
+			return queue.poll();
+		}
+		
+		return null;
+	}
+	
+	public E remove(){
+		if(queue.size() > 0){
+			return poll();
+		}
+		
+		return null;
+	}
+}

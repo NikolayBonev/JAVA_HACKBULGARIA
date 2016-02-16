@@ -1,0 +1,184 @@
+import java.io.*;
+import java.nio.charset.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FileUtils {
+	private static FileUtils utils = null;	
+	
+	private FileUtils() {
+	}
+
+	public static FileUtils getInstance(){
+		if(utils == null){
+			utils = new FileUtils();
+		}
+		
+		return utils;
+	}
+	
+	public static String readFrom(File file) throws IOException{
+		return readFrom(file.toPath());
+	}
+	
+	public static String readFrom(Path path) throws IOException{
+		StringBuilder builder = new StringBuilder();
+		
+		BufferedReader reader = null;
+		
+		try{
+			reader = Files.newBufferedReader(path, Charset.defaultCharset());
+			
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				builder.append(line);
+				builder.append("\n");
+			}
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+	
+		return builder.toString();
+	}
+	
+	public static void writeTo(File file, String text) throws IOException{
+		writeTo(file.toPath(), text);
+	}
+	
+	public static void writeTo(Path path, String text) throws IOException{
+		BufferedWriter writer = null;
+		
+		try {
+			writer = Files.newBufferedWriter(path, Charset.defaultCharset());
+			writer.write(text);
+		} finally {
+			if(writer != null){
+				writer.close();
+			}
+		}
+	}
+	
+	public static Map<String, String> parseProperties(File file) throws IOException{
+		List<String> properties = new ArrayList<>();
+		
+		BufferedReader reader = null;
+		
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				
+				if(line == null || line.length() == 0 || line.startsWith("#")){
+					continue;
+				}
+					
+				properties.add(line.replace("\\s+", ""));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+		
+		return extractProperty(properties);
+	}
+	
+	private static Map<String, String> extractProperty(List<String> properties){
+		Map<String, String> result = new HashMap<>();
+		
+		String[] property = null;
+		
+		for(String line : properties){
+			if(line.charAt(2) != '='){
+				continue;
+			}
+			
+			property = line.split("=", 2);
+			result.put(property[0], property[1]);
+		}
+		
+		return result;
+	}
+	
+	public static WordCountResult wordCount(File file) throws IOException{
+		int lines = 0;
+		int words = 0;
+		int chars = 0;
+		
+		BufferedReader reader = null;
+		Pattern pattern = Pattern.compile("\\w+");
+		Matcher m = null;
+		
+		try{
+			reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			
+			while(reader.ready()){
+				line = reader.readLine();
+				m = pattern.matcher(line);
+				
+				while(m.find()){
+					words++;
+				}
+				
+				lines++;
+				chars += line.length();
+			}
+		} finally {
+			if(reader != null){
+				reader.close();
+			}
+		}
+		
+		
+		return new WordCountResult(words, lines, chars);
+	}
+	
+	public static WordCountResult wordCount(Path path) throws IOException{
+		return wordCount(path.toFile());
+	}
+	
+	public static void fixEncoding(Path path) throws IOException{
+		String backup = null;
+		String fixed = null;
+		
+		if(path.getParent() != null){
+			backup = path.getParent() + "/";
+			fixed = path.getParent() + "/";
+		}
+		
+		backup += "temp" + path.getFileName();
+		fixed += "fixed" + path.getFileName();
+		
+		Files.deleteIfExists(new File(backup).toPath());
+		Files.copy(path, new File(backup).toPath());
+
+		BufferedReader reader = Files.newBufferedReader(path, Charset.forName("Windows-1251"));
+		BufferedWriter writer = Files.newBufferedWriter(new File(fixed).toPath(), Charset.forName("UTF-8"));
+
+		String line = null;
+		
+		while(reader.ready()){
+			line = reader.readLine();
+			
+			writer.write(line);
+			writer.newLine();
+		}
+		
+		reader.close();
+		writer.close();
+		
+		Files.deleteIfExists(new File(backup).toPath());
+	}
+}

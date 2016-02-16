@@ -1,0 +1,12 @@
+
+public class TestBQ {
+
+	public static void main(String[] args) {
+		BlockingQueue<Integer> queue = new BlockingQueue<>(10);
+		
+		new Thread(new Producer(queue, 7)).start();
+		new Thread(new Consumer(queue, 5)).start();
+
+	}
+
+}

@@ -1,0 +1,9 @@
+
+public class ThreadIncrement implements Runnable {
+	CounterObject obj = null;
+	@Override
+	public void run() {
+		
+	}
+
+}

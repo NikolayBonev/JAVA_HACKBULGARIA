@@ -1,0 +1,17 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class BlockingQueue<E> {
+	private Queue<E> queue = null;
+	private int capacity = 0;
+	
+	public BlockingQueue(int capacity) {
+		if(capacity > 0){
+			this.capacity = capacity;
+		}
+		
+		this.queue = new LinkedList<E>();
+	}
+	
+	
+}

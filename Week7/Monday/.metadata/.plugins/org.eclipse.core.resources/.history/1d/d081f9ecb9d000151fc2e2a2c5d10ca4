@@ -1,0 +1,11 @@
+import java.io.File;
+
+public class Test {
+
+	public static void main(String[] args) {
+		String ans = FileUtils.readFrom(new File(""));
+
+		System.out.println(ans);
+	}
+
+}

@@ -1,0 +1,31 @@
+package BlockingQueue;
+import java.util.Random;
+
+public class Producer implements Runnable {
+	private BlockingQueue<Integer> queue = null;
+	private int size;
+	
+	public Producer (BlockingQueue<Integer> queue, int size) {
+		this.queue = queue;
+		this.size = size;
+	}
+
+
+	@Override
+	public void run() {
+		Random rand = new Random();
+		
+		try {
+			while(this.size > 0){
+				this.queue.offer(new Integer(rand.nextInt(100)));
+				size--;
+				Thread.sleep(new Integer(rand.nextInt(3234)));
+			}
+		} catch (InterruptedException e) {
+			System.out.println("Can't produse!");
+		} finally {
+			System.out.println("Done produsing!");
+		}
+	}
+
+}

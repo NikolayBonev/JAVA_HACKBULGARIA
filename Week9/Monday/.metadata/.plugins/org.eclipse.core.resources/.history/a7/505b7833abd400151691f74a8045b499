@@ -1,0 +1,23 @@
+
+public class Consumer<E> implements Runnable {
+	private BlockingQueue<E> queue = null;
+	
+	
+	public Consumer(BlockingQueue<E> queue) {
+		this.queue = queue;
+	}
+
+
+	@Override
+	public void run() {
+		try {
+			while(this.queue.size() > 0){
+				this.queue.poll();
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

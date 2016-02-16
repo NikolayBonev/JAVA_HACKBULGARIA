@@ -1,0 +1,36 @@
+import java.io.*;
+import java.nio.file.*;
+
+public class Test {
+
+	public static void main(String[] args) {
+//		String ans = null;
+//		try {
+//			ans = FileUtils.readFrom(new File("haha.txt"));
+//			System.out.println(ans);
+//			
+//			FileUtils.writeTo(new File("haha.txt"), "fddf 345");
+//			System.out.println();
+//			ans = FileUtils.readFrom(new File("haha.txt"));
+//			System.out.println(ans);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		System.out.println(ans);
+		
+//		try {
+//			FileUtils.fixEncoding(Paths.get("ddd/lost.s04e11.hdtv.xvid-2hd.srt"));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		System.out.println(FileUtils.reducePath("//////////////"));
+		
+		FileUtils.compress(Paths.get("compressor.txt"));
+		
+	}
+
+}

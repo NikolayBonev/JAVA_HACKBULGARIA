@@ -1,0 +1,16 @@
+
+public class CounterObject {
+	private static int counter = 1;
+	
+	public static void increment(){
+		counter++;
+	}
+	
+	public static void decrement(){
+		counter--;
+	}
+	
+	public static int getInt(){
+		return counter;
+	}
+}
